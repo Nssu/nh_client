@@ -21,6 +21,7 @@ import com.example.jinsu.nh_life.common.Constants;
 
 public class StepCheckService extends Service implements SensorEventListener {
     public static int step = 0;
+    private static long runningTime = 0;
     int count = Constants.getInstance().getStep();
     private long lastTime;
     private float speed;
@@ -110,10 +111,15 @@ public class StepCheckService extends Service implements SensorEventListener {
                     Intent myFilteredResponse = new Intent("make.a.yong.manbo");
 
                     Constants.getInstance().setStep(count++);
+                    Constants.getInstance().setTime(runningTime + gabOfTime);
 
                     String msg = Constants.getInstance().getStep() / 2 + "";
                     step = Constants.getInstance().getStep() / 2;
                     myFilteredResponse.putExtra("stepService", msg);
+
+                    String msg2 = ""+(Constants.getInstance().getTime() / 1000);
+                    runningTime = Constants.getInstance().getTime();
+                    myFilteredResponse.putExtra("timeService", msg2);
                     sendBroadcast(myFilteredResponse);
                 } // end of if
 
@@ -133,6 +139,13 @@ public class StepCheckService extends Service implements SensorEventListener {
     public static int getStep()
     {
         return step;
+    }
+
+    public static long getTime()
+    {
+
+        return runningTime;
+
     }
     @Override
     public IBinder onBind(Intent intent) {

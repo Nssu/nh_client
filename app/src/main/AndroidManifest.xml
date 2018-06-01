@@ -17,10 +17,11 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.StepCheckService"
-            android:exported="true"/>
+        <service
+            android:name=".service.StepCheckService"
+            android:exported="true" />
+
+        <activity android:name=".activity.HealthActivity"></activity>
     </application>
-
-
 
 </manifest>

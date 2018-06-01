@@ -11,6 +11,8 @@ public class Constants {
     private String PREF_USER_KEY = "user_key";
     private String USER_KEY = null;
     private ArrayList<Coupon> list_coupons = new ArrayList<>();
+    public String[] week = {"월요일","화요일","수요일","목요일","금요일","토요일","일요일"};
+    private long Time = 0;
 
     private Constants(){}
 
@@ -49,5 +51,13 @@ public class Constants {
 
     public void setList_coupons(ArrayList<Coupon> list_coupons) {
         this.list_coupons = list_coupons;
+    }
+
+    public long getTime() {
+        return Time;
+    }
+
+    public void setTime(long time) {
+        Time = time;
     }
 }

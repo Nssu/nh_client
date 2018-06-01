@@ -3,47 +3,84 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/main_layout_circle"
-        android:layout_width="440px"
-        android:layout_height="440px"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_centerHorizontal="true">
-        <com.example.jinsu.nh_life.activity.CircleView
-            android:id="@+id/main_view_circle"
-            android:layout_width="440px"
-            android:layout_height="440px"
-            android:layout_gravity="center"
-            />
-
-        <TextView
-            android:id="@+id/test_txt"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            />
-    </FrameLayout>
-
-    <FrameLayout
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_layout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/main_layout_circle">
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        sothree:umanoDragView="@+id/dragView"
+        sothree:umanoOverlay="true"
+        sothree:umanoPanelHeight="40dp"
+        sothree:umanoShadowHeight="4dp">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/main_viewpager_coupon"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            >
-        </android.support.v4.view.ViewPager>
+            android:layout_height="match_parent">
 
-        <com.example.jinsu.nh_life.util.IndicatorAnimation
-            android:id="@+id/main_indicator"
-            android:layout_width="wrap_content"
+            <FrameLayout
+                android:id="@+id/main_layout_circle"
+                android:layout_width="440px"
+                android:layout_height="440px"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_centerHorizontal="true">
+                <com.example.jinsu.nh_life.activity.CircleView
+                    android:id="@+id/main_view_circle"
+                    android:layout_width="440px"
+                    android:layout_height="440px"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/test_txt"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hello World!"
+                    />
+                <TextView
+                    android:id="@+id/test_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello World!" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_below="@id/main_layout_circle">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/main_viewpager_coupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    >
+                </android.support.v4.view.ViewPager>
+
+                <com.example.jinsu.nh_life.util.IndicatorAnimation
+                    android:id="@+id/main_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <!-- barcode layout -->
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            />
-    </FrameLayout>
+            android:orientation="vertical"
+            android:background="#ff0000">
+
+            <ImageView
+                android:id="@+id/c"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/barcode"/>
+
+        </LinearLayout>
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
 </RelativeLayout>

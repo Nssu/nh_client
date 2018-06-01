@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import com.example.jinsu.nh_life.adapter.MainPageAdapter;
 import com.example.jinsu.nh_life.service.StepCheckService;
 import com.example.jinsu.nh_life.util.CircleAnimation;
 import com.example.jinsu.nh_life.util.IndicatorAnimation;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.List;
 
@@ -34,6 +36,12 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    @BindView(R.id.test_time)
+    TextView testTime;
+    @BindView(R.id.c)
+    ImageView c;
+    @BindView(R.id.sliding_layout)
+    SlidingUpPanelLayout slidingLayout;
     private Intent manboService;
 
     private BroadcastReceiver receiver;
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private boolean flag = true;
     private String serviceData;
+    private String serviceDataTime;
     private IndicatorAnimation circleAnimIndicator;
 
     @BindView(R.id.test_txt)
@@ -84,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         layoutMain.addDrawerListener(toggle);
         toggle.syncState();
 
-        CircleAnimation animation = new CircleAnimation(mainViewCircle,260);
+        CircleAnimation animation = new CircleAnimation(mainViewCircle, 260);
         animation.setDuration(10000);
         mainViewCircle.startAnimation(animation);
         // nvAdmin.setNavigationItemSelectedListener(this);
@@ -160,15 +169,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onResume() {
         super.onResume();
         testTxt.setText(String.valueOf(StepCheckService.getStep()));
+        testTime.setText(String.valueOf(StepCheckService.getTime() / 1000));
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.navi_coupon:
-            {
-                startActivity(new Intent(this,MyCouponListActivity.class));
+        switch (item.getItemId()) {
+            case R.id.navi_coupon: {
+                startActivity(new Intent(this, MyCouponListActivity.class));
                 break;
             }
         }
@@ -182,6 +190,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.i("PlayignReceiver", "IN");
             serviceData = intent.getStringExtra("stepService");
             testTxt.setText(serviceData);
+            serviceDataTime = intent.getStringExtra("timeService");
+            testTime.setText(serviceDataTime);
         }
     }
 

@@ -17,6 +17,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.MyCouponListActivity">
+
+        </activity>
+
         <service android:name=".service.StepCheckService"
             android:exported="true"/>
     </application>

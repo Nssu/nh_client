@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_drawer"
+    android:layout_width="291.3dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/gray2"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/drawer_im_user"
+            android:layout_width="166.7dp"
+            android:layout_height="166.3dp"
+            android:layout_marginLeft="61.3dp"
+            android:layout_marginRight="63.3dp"
+            android:layout_gravity="center"
+            android:src="@color/white"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="1px"
+            app:riv_corner_radius="166dp" />
+
+        <ImageView
+            android:layout_width="142.7dp"
+            android:layout_height="52dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="124.3dp"
+            android:src="@drawable/profile_border"
+            android:layout_gravity="bottom|center_horizontal"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:baselineAligned="true"
+            android:layout_marginBottom="17.7dp">
+            <TextView
+                android:id="@+id/drawer_txt_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14.8sp"
+                android:textColor="@color/black"
+                android:text="2000"
+                />
+            <TextView
+                android:layout_marginLeft="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14.8sp"
+                android:textColor="@color/blue"
+                android:text="P"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_marginTop="13.3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:measureAllChildren="true"
+        android:background="@drawable/drawer_btn_border"
+        >
+        <Button
+            android:id="@+id/drawer_btn_profile"
+            android:layout_width="253.3dp"
+            android:layout_height="47.7dp"
+            android:textSize="15.2sp"
+            android:textColor="@color/gray3"
+            android:text="내 정보 수정"
+            android:background="@android:color/transparent"
+            />
+
+        <View
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_width="63.7dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10.7dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/blue" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_marginTop="6.7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:measureAllChildren="true"
+        android:background="@drawable/drawer_btn_border"
+        >
+        <Button
+            android:id="@+id/drawer_btn_coupon"
+            android:layout_width="253.3dp"
+            android:layout_height="47.7dp"
+            android:textSize="15.2sp"
+            android:textColor="@color/gray3"
+            android:text="내 쿠폰 목록"
+            android:background="@android:color/transparent"
+            />
+
+        <View
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_width="63.7dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10.7dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/blue" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_marginTop="6.7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:measureAllChildren="true"
+        android:background="@drawable/drawer_btn_border"
+        >
+        <Button
+            android:id="@+id/drawer_btn_point"
+            android:layout_width="253.3dp"
+            android:layout_height="47.7dp"
+            android:textSize="15.2sp"
+            android:textColor="@color/gray3"
+            android:text="포인트 내역"
+            android:background="@android:color/transparent"
+            />
+
+        <View
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_width="63.7dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10.7dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/green" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_marginTop="6.7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:measureAllChildren="true"
+        android:background="@drawable/drawer_btn_border"
+        >
+        <Button
+            android:id="@+id/drawer_btn_rating"
+            android:layout_width="253.3dp"
+            android:layout_height="47.7dp"
+            android:textSize="15.2sp"
+            android:textColor="@color/gray3"
+            android:text="등급 보기"
+            android:background="@android:color/transparent"
+            />
+
+        <View
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_width="63.7dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10.7dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/green" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_marginTop="6.7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:measureAllChildren="true"
+        android:background="@drawable/drawer_btn_border"
+        >
+        <Button
+            android:id="@+id/drawer_btn_logout"
+            android:layout_width="253.3dp"
+            android:layout_height="47.7dp"
+            android:textSize="15.2sp"
+            android:textColor="@color/gray3"
+            android:text="로그아웃"
+            android:background="@android:color/transparent"
+            />
+
+        <View
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_width="63.7dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10.7dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/yellow" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_marginTop="6.7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:measureAllChildren="true"
+        android:background="@drawable/drawer_btn_border"
+        >
+        <Button
+            android:id="@+id/drawer_btn_license"
+            android:layout_width="253.3dp"
+            android:layout_height="47.7dp"
+            android:textSize="15.2sp"
+            android:textColor="@color/gray3"
+            android:text="라이센스"
+            android:background="@android:color/transparent"
+            />
+
+        <View
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_width="63.7dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="10.7dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/yellow" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15.3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:baselineAligned="true"
+        >
+        <ImageView
+            android:layout_width="25.7dp"
+            android:layout_height="25.7dp"
+            android:src="@drawable/ic_phone_black_24dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25.2sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="1661-3000"/>
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.2sp"
+            android:textColor="@color/black"
+            android:text="고객센터"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

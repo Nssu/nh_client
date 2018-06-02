@@ -17,6 +17,7 @@ public class Constants {
     private String USER_KEY = "user_1";
 
     private Coupon REC_COUPON;
+    private Coupon MY_COUPON;
     public String[] week = {"월요일","화요일","수요일","목요일","금요일","토요일","일요일"};
     private long Time = 0;
 
@@ -75,4 +76,11 @@ public class Constants {
         this.DELETE_STATUS = DELETE_STATUS;
     }
 
+    public Coupon getMY_COUPON() {
+        return MY_COUPON;
+    }
+
+    public void setMY_COUPON(Coupon MY_COUPON) {
+        this.MY_COUPON = MY_COUPON;
+    }
 }

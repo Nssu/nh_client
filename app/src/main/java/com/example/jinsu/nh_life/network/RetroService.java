@@ -40,7 +40,7 @@ public interface RetroService {
     Call<ArrayList<Coupon>> getAllCoupon();
 
 
-    @GET
+    @GET("/Tram")
     Call<MyRank> getRank(@Query("user_key") String user_key);
 
 
@@ -50,6 +50,9 @@ public interface RetroService {
 
     @POST("/deleteMyCoupon")
     Call<String> deleteCoupon(@Query("user_key") String user_key, @Query("coupon_key") int coupon_key);
+
+    @GET
+    Call<String> sendMoney(@Query("send_point") String send_point, @Query("user_key") String user_key);
 
 
 

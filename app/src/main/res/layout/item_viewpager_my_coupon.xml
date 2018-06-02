@@ -14,7 +14,7 @@ android:background="@drawable/coupon_background"
     android:layout_height="81dp"
     android:layout_centerVertical="true"
     android:layout_marginLeft="20dp"
-    android:src="@drawable/nh"/>
+    />
 
 
 <LinearLayout
@@ -23,9 +23,10 @@ android:background="@drawable/coupon_background"
     android:orientation="vertical"
     android:layout_alignParentRight="true"
     android:paddingTop="24dp"
-    android:paddingRight="60dp">
+    android:paddingRight="45dp">
 
     <TextView
+        android:id="@+id/bar_txt_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
@@ -34,6 +35,7 @@ android:background="@drawable/coupon_background"
         android:text="모든 음료 30% 세일"/>
 
     <TextView
+        android:id="@+id/bar_txt_brand"
         android:layout_marginTop="18.3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,6 +46,7 @@ android:background="@drawable/coupon_background"
         android:text="스타벅스"/>
 
     <TextView
+        android:id="@+id/bar_txt_date"
         android:layout_marginTop="9dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

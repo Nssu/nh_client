@@ -23,11 +23,11 @@
             <FrameLayout
                 android:id="@+id/main_layout_circle"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
-                android:layout_marginTop="23dp"
+                android:layout_height="275dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginLeft="11.3dp"
                 android:layout_marginRight="11.3dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginBottom="2dp"
                 android:background="@drawable/step_background">
                 <ImageView
                     android:id="@+id/drawer_menu"
@@ -49,7 +49,7 @@
                     android:id="@+id/frame_step"
                     android:layout_width="530px"
                     android:layout_height="535px"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="79.3dp"
                     android:layout_marginRight="79.3dp"
                     android:layout_gravity="center_horizontal|top"
@@ -58,7 +58,7 @@
                     <com.example.jinsu.nh_life.activity.CircleView
                         android:id="@+id/main_view_circle"
                         android:layout_width="262dp"
-                        android:layout_height="260dp" />
+                        android:layout_height="265dp" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                     android:layout_marginRight="28dp"
                     android:layout_marginLeft="28dp"
                     android:layout_gravity="center_horizontal|bottom"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginBottom="15dp">
 
                     <LinearLayout
                         android:id="@+id/circle_stat1"
@@ -251,7 +251,6 @@
                     android:id="@+id/main_viewpager_coupon"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-
                     >
                 </android.support.v4.view.ViewPager>
 
@@ -269,20 +268,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="17dp"
+                android:layout_marginBottom="22dp"
                 android:gravity="center_horizontal">
 
                 <Button
                     android:id="@+id/send_point"
                     android:layout_width="162dp"
-                    android:layout_height="52dp"
+                    android:layout_height="56dp"
                     android:background="@drawable/send_button"
                     android:layout_marginRight="7dp"/>
 
                 <Button
                     android:id="@+id/shopping"
                     android:layout_width="162dp"
-                    android:layout_height="52dp"
+                    android:layout_height="56dp"
                     android:background="@drawable/shopping"/>
 
             </LinearLayout>

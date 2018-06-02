@@ -21,7 +21,6 @@ import com.example.jinsu.nh_life.common.Constants;
 
 public class StepCheckService extends Service implements SensorEventListener {
     public static int step = 0;
-    private static long runningTime = 0;
     int count = Constants.getInstance().getStep();
     private long lastTime;
     private float speed;
@@ -32,6 +31,7 @@ public class StepCheckService extends Service implements SensorEventListener {
    // private ServiceThread thread;
     private Notification Notifi ;
     private RemoteViews remoteViews;
+    private static long runningTime = 0;
 
     private float x, y, z;
     private static final int SHAKE_THRESHOLD = 800;
@@ -96,6 +96,7 @@ public class StepCheckService extends Service implements SensorEventListener {
             long currentTime = System.currentTimeMillis();
             long gabOfTime = (currentTime - lastTime);
 
+
             if (gabOfTime > 100) { //  gap of time of step count
                 Log.i("onSensorChanged_IF", "FIRST_IF_IN");
                 lastTime = currentTime;
@@ -116,7 +117,6 @@ public class StepCheckService extends Service implements SensorEventListener {
                     String msg = Constants.getInstance().getStep() / 2 + "";
                     step = Constants.getInstance().getStep() / 2;
                     myFilteredResponse.putExtra("stepService", msg);
-
                     String msg2 = ""+(Constants.getInstance().getTime() / 1000);
                     runningTime = Constants.getInstance().getTime();
                     myFilteredResponse.putExtra("timeService", msg2);
@@ -143,9 +143,7 @@ public class StepCheckService extends Service implements SensorEventListener {
 
     public static long getTime()
     {
-
         return runningTime;
-
     }
     @Override
     public IBinder onBind(Intent intent) {

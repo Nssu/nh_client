@@ -138,6 +138,7 @@
                         android:gravity="center_vertical">
 
                         <TextView
+                            android:id="@+id/text_km"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -145,7 +146,8 @@
                             android:text="5.55"
                             android:textColor="@color/blue"
                             android:textSize="19.5sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:maxLength="4"/>
 
 
                         <TextView
@@ -177,6 +179,7 @@
                         android:layout_centerInParent="true">
 
                         <TextView
+                            android:id="@+id/text_kcal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -184,7 +187,9 @@
                             android:textStyle="bold"
                             android:fontFamily="@font/yoon320"
                             android:textColor="@color/blue"
-                            android:text="300"/>
+                            android:text="300"
+                            android:maxLength="4"/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

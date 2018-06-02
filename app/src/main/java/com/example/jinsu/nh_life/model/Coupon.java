@@ -46,4 +46,6 @@ public class Coupon {
     public String getCoupon_expired_date() {
         return coupon_expired_date;
     }
+
+
 }

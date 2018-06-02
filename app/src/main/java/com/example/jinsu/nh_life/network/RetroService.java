@@ -29,18 +29,25 @@ public interface RetroService {
     @GET("/getPoint/")
     Call<ArrayList<Point>> getPointList(@Query("user_key") String user_key);
 
-    @FormUrlEncoded
+
     @POST("/postMyCoupon/")
-    Call<Integer>  postCoupon(@Field("user_key") String user_key, @Field("coupon_key") int coupon_key);
+    Call<String>  postCoupon(@Query("user_key") String user_key, @Query("coupon_key") int coupon_key);
 
     @GET("/getMyCoupon/")
     Call<ArrayList<Coupon>> getMyCoupon(@Query("user_key") String user_key);
 
-    @GET
+    @GET("/allCouponList/")
     Call<ArrayList<Coupon>> getAllCoupon();
+
 
     @GET
     Call<MyRank> getRank(@Query("user_key") String user_key);
+
+
+
+
+    @POST("/deleteMyCoupon")
+    Call<String> deleteCoupon(@Query("user_key") String user_key, @Query("coupon_key") int coupon_key);
 
 
 

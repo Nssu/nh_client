@@ -2,6 +2,7 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/coupon_list_layout"
     android:layout_width="324.3dp"
     android:layout_height="129dp"
     android:layout_centerHorizontal="true"
@@ -10,12 +11,20 @@
     android:background="@drawable/coupon_background">
 
     <ImageView
+        android:id="@+id/my_coupon_im_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_cancel_black_24dp"
+        android:layout_alignParentRight="true"
+        android:visibility="invisible"
+        />
+    <ImageView
         android:id="@+id/my_coupon_im_logo"
         android:layout_width="81dp"
         android:layout_height="81dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/nh"/>
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"

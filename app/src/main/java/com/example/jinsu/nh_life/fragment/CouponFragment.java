@@ -78,14 +78,16 @@ public class CouponFragment extends Fragment {
     private void setVIew() {
         Log.d("main_activity","setVIew()");
         coupon = Constants.getInstance().getREC_COUPON();
-        Glide.with(this).load(RetroClient.getInstance().getBASE_URL() + coupon.getCoupon_image()).into(mainImCoupon);
-        mainTxtBrand.setText(coupon.getCoupon_brand());
-        mainTxtContent.setText(coupon.getCoupon_content());
-        String start_date = coupon.getCoupon_start_date().substring(0, 10);
-        String expired_date = coupon.getCoupon_expired_date().substring(0, 10);
-        start_date = start_date.replaceAll("-", ".");
-        expired_date = expired_date.replaceAll("-", ".");
-        mainTxtDate.setText(start_date + " ~ " + expired_date);
+        if(coupon != null) {
+            Glide.with(this).load(RetroClient.getInstance().getBASE_URL() + coupon.getCoupon_image()).into(mainImCoupon);
+            mainTxtBrand.setText(coupon.getCoupon_brand());
+            mainTxtContent.setText(coupon.getCoupon_content());
+            String start_date = coupon.getCoupon_start_date().substring(0, 10);
+            String expired_date = coupon.getCoupon_expired_date().substring(0, 10);
+            start_date = start_date.replaceAll("-", ".");
+            expired_date = expired_date.replaceAll("-", ".");
+            mainTxtDate.setText(start_date + " ~ " + expired_date);
+        }
     }
 
     @Override

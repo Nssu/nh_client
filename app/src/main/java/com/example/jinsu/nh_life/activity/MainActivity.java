@@ -25,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.adapter.MainPageAdapter;
 import com.example.jinsu.nh_life.adapter.MyCouponAdapter;
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String serviceDataTime;
     private IndicatorAnimation circleAnimIndicator;
     private ArrayList<Coupon> coupons_list;
+    private ArrayList<Coupon> my_coupons_list;
 
     @BindView(R.id.test_txt)
     TextView testTxt;
@@ -135,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         coupons_list = new ArrayList<>();
+        my_coupons_list = new ArrayList<>();
         getData();
         initActivity();
         initService();
@@ -152,10 +155,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, layoutMain, toolbar, 0, 0);
         layoutMain.addDrawerListener(toggle);
         toggle.syncState();
-
+        Glide.with(this).load(R.drawable.my).into(drawerImUser);
         CircleAnimation animation = new CircleAnimation(mainViewCircle, 260);
         animation.setDuration(10000);
         mainViewCircle.startAnimation(animation);
+
 
 
         // nvAdmin.setNavigationItemSelectedListener(this);
@@ -196,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onPageSelected(int position) {
-
+                Constants.getInstance().setMY_COUPON(my_coupons_list.get(position));
             }
 
             @Override
@@ -215,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //원사이의 간격
         mainIndicator.setItemMargin(10);
         //애니메이션 속도
-        mainIndicator.setAnimDuration(400);
+        mainIndicator.setAnimDuration(600);
         //indecator 생성
         mainIndicator.createDotPanel(5, R.drawable.indicator_non, R.drawable.indicator_select);
     }
@@ -313,6 +317,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void getData()
     {
         coupons_list.clear();
+        my_coupons_list.clear();
         Call<ArrayList<Coupon>> call = RetroClient.getInstance().getRetroService().getRecCoupon(Constants.getInstance().getUSER_KEY());
         call.enqueue(new Callback<ArrayList<Coupon>>() {
             @Override
@@ -326,6 +331,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onFailure(Call<ArrayList<Coupon>> call, Throwable t) {
                 Log.d("main_activity","연결실패 : " + t.getMessage());
+            }
+        });
+
+        Call<ArrayList<Coupon>> call2 = RetroClient.getInstance().getRetroService().getMyCoupon(Constants.getInstance().getUSER_KEY());
+        call2.enqueue(new Callback<ArrayList<Coupon>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Coupon>> call, Response<ArrayList<Coupon>> response) {
+                my_coupons_list.addAll(response.body());
+                Constants.getInstance().setMY_COUPON(my_coupons_list.get(0));
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Coupon>> call, Throwable t) {
+
             }
         });
     }

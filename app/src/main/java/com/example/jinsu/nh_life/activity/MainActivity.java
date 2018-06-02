@@ -16,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -247,21 +246,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    @OnClick({R.id.drawer_menu,R.id.frame_step,R.id.send_point})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.drawer_menu:
-                layoutMain.openDrawer(GravityCompat.START);
-                break;
-            case R.id.frame_step:
-                startActivity(new Intent(getApplicationContext(),HealthActivity.class));
-                finish();
-                break;
-            case R.id.send_point:
-                startActivity(new Intent(getApplicationContext(),SendMoneyActivity.class));
-                break;
-        }
-
+    @OnClick(R.id.drawer_menu)
+    public void onViewClicked() {
+        layoutMain.openDrawer(GravityCompat.START);
     }
 
     class PlayingReceiver extends BroadcastReceiver {

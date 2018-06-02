@@ -78,6 +78,7 @@ public class CouponFragment extends Fragment {
     private void setVIew() {
         Log.d("main_activity","setVIew()");
         coupon = Constants.getInstance().getREC_COUPON();
+
         if(coupon != null) {
             Glide.with(this).load(RetroClient.getInstance().getBASE_URL() + coupon.getCoupon_image()).into(mainImCoupon);
             mainTxtBrand.setText(coupon.getCoupon_brand());
@@ -88,6 +89,7 @@ public class CouponFragment extends Fragment {
             expired_date = expired_date.replaceAll("-", ".");
             mainTxtDate.setText(start_date + " ~ " + expired_date);
         }
+
     }
 
     @Override

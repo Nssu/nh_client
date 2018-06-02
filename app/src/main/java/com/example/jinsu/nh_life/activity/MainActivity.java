@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getData();
         initActivity();
         initService();
+        initViewPager();
         initListener();
 
     }
@@ -159,7 +160,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         CircleAnimation animation = new CircleAnimation(mainViewCircle, 260);
         animation.setDuration(10000);
         mainViewCircle.startAnimation(animation);
-
 
 
         // nvAdmin.setNavigationItemSelectedListener(this);
@@ -248,7 +248,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onBackPressed() {
         if (layoutMain.isDrawerOpen(GravityCompat.START)) {
             layoutMain.closeDrawer(GravityCompat.START);
-        } else {
+        } if(slidingLayout.getPanelState()== SlidingUpPanelLayout.PanelState.EXPANDED){
+            slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+        }else {
             super.onBackPressed();
         }
     }
@@ -258,11 +260,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onResume() {
         super.onResume();
         testTxt.setText(String.valueOf(StepCheckService.getStep()));
-
-        textKm.setText(""+StepCheckService.getStep() * Constants.one_km);
-        textKcal.setText(""+StepCheckService.getStep() * Constants.one_kcal);
         testTime.setText(String.valueOf(StepCheckService.getTime() / 60000));
-
+        textKm.setText(""+Math.round(StepCheckService.getStep() * Constants.one_km*100d)/100d);
+        textKcal.setText(""+Math.round(StepCheckService.getStep() * Constants.one_kcal*100d)/100d);
+        if(Constants.target < StepCheckService.getStep()){
+            Constants.point += 1;
+            Constants.target  += 10;
+        }
+        drawerTxtPoint.setText(""+Constants.point+"P");
     }
 
     @Override
@@ -358,10 +363,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             serviceData = intent.getStringExtra("stepService");
             testTxt.setText(serviceData);
             serviceDataTime = intent.getStringExtra("timeService");
-            textKm.setText(""+Integer.parseInt(serviceData) * Constants.one_km);
-            textKcal.setText(""+Integer.parseInt(serviceData) * Constants.one_kcal);
-            testTime.setText(Integer.parseInt(serviceDataTime)/60 + "");
-
+            testTime.setText(""+Integer.parseInt(serviceDataTime)/60);
+            textKm.setText(""+Math.round(Integer.parseInt(serviceData) * Constants.one_km*100d)/100d);
+            textKcal.setText(""+Math.round(Integer.parseInt(serviceData) * Constants.one_kcal*100d)/100d);
+            if(Constants.target < StepCheckService.getStep()){
+                Constants.point += 1;
+                Constants.target  += 10;
+            }
+            drawerTxtPoint.setText(""+Constants.point+"P");
         }
     }
 

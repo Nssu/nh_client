@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.common.Constants;
+import com.example.jinsu.nh_life.service.StepCheckService;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -51,14 +52,18 @@ public class StatFragment extends Fragment {
     TextView textviewTime;
     @BindView(R.id.layout_main)
     LinearLayout layoutMain;
-    @BindView(R.id.stat_im_pizza)
-    ImageView statImPizza;
     @BindView(R.id.stat_im_day)
     ImageView statImDay;
     @BindView(R.id.stat_im_week)
     ImageView statImWeek;
     @BindView(R.id.stat_im_month)
     ImageView statImMonth;
+
+    @BindView(R.id.textview_cal)
+    TextView textkcal;
+    @BindView(R.id.statImPizza)
+    ImageView statImPizza;
+
 
     private String[] current_day;
     private int mode; // 0 : 일별, 1: 주별, 2 : 월별
@@ -70,6 +75,11 @@ public class StatFragment extends Fragment {
 
         mode = 0;
 
+        textviewStep.setText(String.valueOf(StepCheckService.getStep()));
+        textkcal.setText("" + Math.round(StepCheckService.getStep() * 0.0005 * 100d) / 100d + "kcal");
+        textviewTime.setText("" + String.valueOf(StepCheckService.getTime() / 60000) + "분");
+        textviewDistance.setText("" + Math.round(StepCheckService.getStep() * 0.05 * 100d) / 100d + "km");
+
         long now = System.currentTimeMillis();
         Date date = new Date(now);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -80,7 +90,7 @@ public class StatFragment extends Fragment {
         Glide.with(this).load(R.drawable.weekly).into(statImWeek);
         Glide.with(this).load(R.drawable.monthly).into(statImMonth);
         textviewStep.setText(String.valueOf(Constants.getInstance().getStep()));
-        textviewTime.setText( String.valueOf(Constants.getInstance().getTime()) );
+        textviewTime.setText(String.valueOf(Constants.getInstance().getTime()));
 
 
         ArrayList<Entry> entries = new ArrayList<>();
@@ -113,8 +123,7 @@ public class StatFragment extends Fragment {
         return view;
     }
 
-    private void setChart()
-    {
+    private void setChart() {
 
     }
 

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.activity.CustomDialogQRCode;
+
 import com.example.jinsu.nh_life.common.Constants;
 import com.example.jinsu.nh_life.model.Coupon;
 import com.example.jinsu.nh_life.network.RetroClient;

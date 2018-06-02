@@ -11,7 +11,9 @@ import android.widget.TextView;
 
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.common.Constants;
+
 import com.example.jinsu.nh_life.network.RetroClient;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +27,8 @@ public class SendMoneyActivity extends AppCompatActivity {
     SeekBar seekbar;
     @BindView(R.id.text_point)
     TextView textPoint;
+    @BindView(R.id.point)
+    TextView point;
     @BindView(R.id.send_edit_account)
     EditText sendEditAccount;
     @BindView(R.id.send_btn_ok)
@@ -34,11 +38,14 @@ public class SendMoneyActivity extends AppCompatActivity {
     @BindView(R.id.send_btn_my)
     Button sendBtnMy;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_money);
         ButterKnife.bind(this);
+
+        point.setText(""+ Constants.point+"P");
 
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onStopTrackingTouch(SeekBar seekBar) {

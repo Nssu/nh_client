@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layout_main"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -106,21 +105,22 @@
                 android:background="@drawable/underline"/>
             
             <ImageView
-                android:id="@+id/stat_im_pizza"
+                android:id="@+id/statImPizza"
                 android:layout_marginTop="5dp"
                 android:layout_width="40.7dp"
                 android:layout_height="30dp"
-                />
+                android:background="@drawable/pizza"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="300kcal"
-                android:textColor="@color/white"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/yoon320"/>
-            
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textview_cal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/yoon320"
+                    android:text="300kcal"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
 
 
         <LinearLayout
@@ -146,15 +146,15 @@
                 android:layout_marginBottom="7dp"/>
 
 
-            <TextView
-                android:id="@+id/textview_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="75분"
-                android:textSize="30sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/yoon350"/>
+                <TextView
+                    android:id="@+id/textview_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/yoon350"
+                    android:text="75분"
+                    android:textColor="@color/white"
+                    android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -183,15 +183,15 @@
                 android:layout_marginBottom="7dp"/>
 
 
-            <TextView
-                android:id="@+id/textview_distance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2km"
-                android:textSize="30sp"
-                android:textColor="@color/white"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/yoon350"/>
+                <TextView
+                    android:id="@+id/textview_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/yoon350"
+                    android:text="2km"
+                    android:textColor="@color/white"
+                    android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -220,21 +220,21 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                />
+                android:background="@drawable/daily"/>
 
             <ImageView
                 android:id="@+id/stat_im_week"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                />
+                android:background="@drawable/weekly"/>
 
             <ImageView
                 android:id="@+id/stat_im_month"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                />
+                android:background="@drawable/monthly"/>
 
         </LinearLayout>
         

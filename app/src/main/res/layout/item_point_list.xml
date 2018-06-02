@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="19dp"
         android:layout_marginRight="22dp"
-        android:src="@drawable/dot_blue"
+
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"/>
 
@@ -31,14 +31,14 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="13.8sp"
-            android:text="스타벅스"/>
+            />
 
         <TextView
             android:id="@+id/point_list_txt_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="13.8sp"
-            android:text="2018.05.06"/>
+            />
 
     </LinearLayout>
 
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14.5sp"
-        android:text="+300"
+
         android:layout_gravity="center"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"

@@ -9,6 +9,7 @@ public class Constants {
     private int Step = 0;
     private String PREF_LOCAL_ID = "pref_id";
     private String PREF_USER_KEY = "user_key";
+    private boolean DELETE_STATUS = true;
 
     private String USER_KEY = "user_1";
 
@@ -61,5 +62,13 @@ public class Constants {
 
     public void setTime(long time) {
         Time = time;
+    }
+
+    public boolean isDELETE_STATUS() {
+        return DELETE_STATUS;
+    }
+
+    public void setDELETE_STATUS(boolean DELETE_STATUS) {
+        this.DELETE_STATUS = DELETE_STATUS;
     }
 }

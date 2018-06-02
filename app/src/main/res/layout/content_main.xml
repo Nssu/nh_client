@@ -46,6 +46,7 @@
 
 
                 <FrameLayout
+                    android:id="@+id/frame_step"
                     android:layout_width="530px"
                     android:layout_height="535px"
                     android:layout_marginTop="23dp"
@@ -263,28 +264,28 @@
                     />
             </FrameLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="17dp"
-            android:gravity="center_horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="17dp"
+                android:gravity="center_horizontal">
 
-            <Button
-            android:id="@+id/send_point"
-            android:layout_width="162dp"
-            android:layout_height="52dp"
-            android:background="@drawable/send_button"
-                android:layout_marginRight="7dp"/>
+                <Button
+                    android:id="@+id/send_point"
+                    android:layout_width="162dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/send_button"
+                    android:layout_marginRight="7dp"/>
 
-            <Button
-                android:id="@+id/shopping"
-                android:layout_width="162dp"
-                android:layout_height="52dp"
-                android:background="@drawable/shopping"/>
+                <Button
+                    android:id="@+id/shopping"
+                    android:layout_width="162dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/shopping"/>
 
-        </LinearLayout>
+            </LinearLayout>
         </RelativeLayout>
 
         <!-- barcode layout -->

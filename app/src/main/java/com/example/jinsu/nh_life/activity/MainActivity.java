@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button drawerBtnLicense;
     @BindView(R.id.layout_drawer)
     LinearLayout layoutDrawer;
+    @BindView(R.id.frame_step)
+    FrameLayout frameStep;
     private Intent manboService;
 
     private BroadcastReceiver receiver;
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initActivity();
-        initService();
+        //initService();
         initViewPager();
         initListener();
     }
@@ -227,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         layoutMain.closeDrawer(GravityCompat.START);
         return true;
     }
+
     public void initListener() {
         drawerBtnCoupon.setOnClickListener(v ->
         {
@@ -234,9 +237,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         drawerBtnPoint.setOnClickListener(v ->
         {
-            startActivity(new Intent(this,PointListActivity.class));
+            startActivity(new Intent(this, PointListActivity.class));
         });
-
+        shopping.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this,ShopActivity.class));
+        });
 
     }
 
@@ -255,7 +261,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             testTime.setText(serviceDataTime);
         }
     }
-
 
 
 }

@@ -20,16 +20,18 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/my_coupon_btn_delete"
             android:layout_width="126dp"
             android:layout_height="28.7dp"
             android:background="@drawable/btn_green_border"
-            android:text="쿠폰 변경"
+            android:text="쿠폰 삭제"
             android:textSize="14sp"
             android:textColor="@color/white"
             android:layout_marginRight="30dp"
             />
 
         <Button
+            android:id="@+id/my_coupon_btn_more"
             android:layout_width="126dp"
             android:layout_height="28.7dp"
             android:background="@drawable/btn_green_border"

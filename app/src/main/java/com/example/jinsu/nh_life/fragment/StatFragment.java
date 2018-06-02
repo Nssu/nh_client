@@ -52,8 +52,6 @@ public class StatFragment extends Fragment {
     TextView textviewTime;
     @BindView(R.id.layout_main)
     LinearLayout layoutMain;
-    @BindView(R.id.stat_im_pizza)
-    ImageView statImPizza;
     @BindView(R.id.stat_im_day)
     ImageView statImDay;
     @BindView(R.id.stat_im_week)
@@ -63,7 +61,8 @@ public class StatFragment extends Fragment {
 
     @BindView(R.id.textview_cal)
     TextView textkcal;
-
+    @BindView(R.id.statImPizza)
+    ImageView statImPizza;
 
 
     private String[] current_day;
@@ -77,9 +76,9 @@ public class StatFragment extends Fragment {
         mode = 0;
 
         textviewStep.setText(String.valueOf(StepCheckService.getStep()));
-        textkcal.setText(""+Math.round(StepCheckService.getStep() * 0.0005*100d)/100d+"kcal");
-        textviewTime.setText(""+String.valueOf(StepCheckService.getTime() / 60000)+"분");
-        textviewDistance.setText(""+Math.round(StepCheckService.getStep() * 0.05*100d)/100d+"km");
+        textkcal.setText("" + Math.round(StepCheckService.getStep() * 0.0005 * 100d) / 100d + "kcal");
+        textviewTime.setText("" + String.valueOf(StepCheckService.getTime() / 60000) + "분");
+        textviewDistance.setText("" + Math.round(StepCheckService.getStep() * 0.05 * 100d) / 100d + "km");
 
         long now = System.currentTimeMillis();
         Date date = new Date(now);
@@ -91,7 +90,7 @@ public class StatFragment extends Fragment {
         Glide.with(this).load(R.drawable.weekly).into(statImWeek);
         Glide.with(this).load(R.drawable.monthly).into(statImMonth);
         textviewStep.setText(String.valueOf(Constants.getInstance().getStep()));
-        textviewTime.setText( String.valueOf(Constants.getInstance().getTime()) );
+        textviewTime.setText(String.valueOf(Constants.getInstance().getTime()));
 
 
         ArrayList<Entry> entries = new ArrayList<>();
@@ -119,13 +118,12 @@ public class StatFragment extends Fragment {
         dataset.setDrawFilled(true); //그래프 밑부분 색칠*/
 
         lineChart.setData(data);
-     //   lineChart.animateY(1000);
+        //   lineChart.animateY(1000);
 
         return view;
     }
 
-    private void setChart()
-    {
+    private void setChart() {
 
     }
 

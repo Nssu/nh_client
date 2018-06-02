@@ -79,6 +79,7 @@ public class CouponFragment extends Fragment {
         Log.d("main_activity","setVIew()");
         coupon = Constants.getInstance().getREC_COUPON();
         Glide.with(this).load(RetroClient.getInstance().getBASE_URL() + coupon.getCoupon_image()).into(mainImCoupon);
+
         mainTxtBrand.setText(coupon.getCoupon_brand());
         mainTxtContent.setText(coupon.getCoupon_content());
         String start_date = coupon.getCoupon_start_date().substring(0, 10);

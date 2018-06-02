@@ -105,6 +105,7 @@
                 android:background="@drawable/underline"/>
             
             <ImageView
+                android:id="@+id/statImPizza"
                 android:layout_marginTop="5dp"
                 android:layout_width="40.7dp"
                 android:layout_height="30dp"

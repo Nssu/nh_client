@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
     <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sliding_layout"
@@ -15,35 +17,89 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/gray1">
 
             <FrameLayout
                 android:id="@+id/main_layout_circle"
-                android:layout_width="440px"
-                android:layout_height="440px"
-                android:layout_marginTop="?attr/actionBarSize"
-                android:layout_centerHorizontal="true">
-                <com.example.jinsu.nh_life.activity.CircleView
-                    android:id="@+id/main_view_circle"
-                    android:layout_width="440px"
-                    android:layout_height="440px"
-                    android:layout_gravity="center"
-                    />
-
-                <TextView
-                    android:id="@+id/test_txt"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hello World!"
-                    />
-                <TextView
-                    android:id="@+id/test_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:layout_marginLeft="11.3dp"
+                android:layout_marginRight="11.3dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/rect_border">
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hello World!" />
+                    android:layout_marginTop="5.7dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_menu_black_24dp"/>
+
+                <FrameLayout
+                    android:layout_width="530px"
+                    android:layout_height="531px"
+                    android:layout_marginTop="21.7dp"
+                    android:layout_marginLeft="79.3dp"
+                    android:layout_marginRight="79.3dp"
+                    android:layout_gravity="center_horizontal|top"
+                    >
+                    <com.example.jinsu.nh_life.activity.CircleView
+                        android:id="@+id/main_view_circle"
+                        android:layout_width="530px"
+                        android:layout_height="531px"
+                        />
+
+                    <TextView
+                        android:id="@+id/test_txt"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hello World!"
+                        />
+                    <TextView
+                        android:id="@+id/test_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hello World!" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="28dp"
+                    android:layout_marginLeft="28dp"
+                    android:layout_gravity="center_horizontal|bottom">
+                    <LinearLayout
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:background="@drawable/round_border"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginTop="7dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="19.5sp"
+                            android:text="5.55"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="km"
+                            android:textSize="12sp"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </FrameLayout>
+
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -64,6 +120,7 @@
                     android:layout_gravity="center|bottom"
                     />
             </FrameLayout>
+
         </RelativeLayout>
 
         <!-- barcode layout -->

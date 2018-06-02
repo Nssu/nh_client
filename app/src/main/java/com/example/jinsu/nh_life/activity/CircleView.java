@@ -8,6 +8,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.example.jinsu.nh_life.R;
+
 public class CircleView extends View {
 
     private float angle = 0;
@@ -31,18 +33,18 @@ public class CircleView extends View {
 
 
         //부채꼴
-        rf = new RectF(10, 10, 400, 400);
+        rf = new RectF(10, 10, 516, 516);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        paint.setColor(Color.GRAY);
-        paint.setStrokeWidth(10);
+        paint.setColor(getResources().getColor(R.color.gray2));
+        paint.setStrokeWidth(15);
         canvas.drawArc(rf,0, 360, false, paint);
         //sweepAngle : 몇도 그릴지, useCenter : true(부채꼴)
-        paint.setStrokeWidth(25);
-        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(30);
+        paint.setColor(getResources().getColor(R.color.blue));
         canvas.drawArc(rf,270, angle, false, paint);
 
 

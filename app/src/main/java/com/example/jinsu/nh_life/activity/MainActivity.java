@@ -36,12 +36,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    @BindView(R.id.test_time)
-    TextView testTime;
-    @BindView(R.id.c)
-    ImageView c;
-    @BindView(R.id.sliding_layout)
-    SlidingUpPanelLayout slidingLayout;
+
     private Intent manboService;
 
     private BroadcastReceiver receiver;
@@ -61,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout layoutMain;
     @BindView(R.id.nv_admin)
     NavigationView nvAdmin;
+    @BindView(R.id.test_time)
+    TextView testTime;
+    @BindView(R.id.c)
+    ImageView c;
+    @BindView(R.id.sliding_layout)
+    SlidingUpPanelLayout slidingLayout;
     @BindView(R.id.main_layout_circle)
     FrameLayout mainLayoutCircle;
     @BindView(R.id.main_viewpager_coupon)

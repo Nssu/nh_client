@@ -20,11 +20,13 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.adapter.MainPageAdapter;
+import com.example.jinsu.nh_life.adapter.MyCouponAdapter;
 import com.example.jinsu.nh_life.service.StepCheckService;
 import com.example.jinsu.nh_life.util.CircleAnimation;
 import com.example.jinsu.nh_life.util.IndicatorAnimation;
@@ -35,10 +37,25 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    @BindView(R.id.drawer_menu)
+    ImageView drawerMenu;
+    @BindView(R.id.text_point)
+    TextView textPoint;
+    @BindView(R.id.circle_stat1)
+    LinearLayout circleStat1;
+    @BindView(R.id.circle_stat2)
+    LinearLayout circleStat2;
+    @BindView(R.id.layout_stepinfo)
+    RelativeLayout layoutStepinfo;
+    @BindView(R.id.send_point)
+    Button sendPoint;
+    @BindView(R.id.shopping)
+    Button shopping;
     @BindView(R.id.drawer_im_user)
     RoundedImageView drawerImUser;
     @BindView(R.id.drawer_txt_point)
@@ -55,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button drawerBtnLogout;
     @BindView(R.id.drawer_btn_license)
     Button drawerBtnLicense;
+    @BindView(R.id.layout_drawer)
+    LinearLayout layoutDrawer;
     private Intent manboService;
 
     private BroadcastReceiver receiver;
@@ -72,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     @BindView(R.id.layout_main)
     DrawerLayout layoutMain;
-
     @BindView(R.id.test_time)
     TextView testTime;
     @BindView(R.id.c)
@@ -87,8 +105,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     IndicatorAnimation mainIndicator;
     @BindView(R.id.main_view_circle)
     CircleView mainViewCircle;
-    @BindView(R.id.layout_drawer)
-    LinearLayout layoutDrawer;
+    @BindView(R.id.viewpager_my_coupon)
+    ViewPager viewpagerMyCoupon;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -143,6 +162,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MainPageAdapter viewPagerAdapter = new MainPageAdapter(getSupportFragmentManager());
         mainViewpagerCoupon.setAdapter(viewPagerAdapter);
         mainViewpagerCoupon.addOnPageChangeListener(mOnPageChangeListener);
+
+        MyCouponAdapter myCouponAdapter = new MyCouponAdapter(getSupportFragmentManager());
+        viewpagerMyCoupon.setAdapter(myCouponAdapter);
+        viewpagerMyCoupon.addOnPageChangeListener(mOnPageChangeListener);
+
         //Indicator 초기화
         initIndicaotor();
 
@@ -151,27 +175,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void initIndicaotor() {
 
         //원사이의 간격
-        mainIndicator.setItemMargin(15);
+        mainIndicator.setItemMargin(10);
         //애니메이션 속도
-        mainIndicator.setAnimDuration(300);
+        mainIndicator.setAnimDuration(200);
         //indecator 생성
-        mainIndicator.createDotPanel(5, R.drawable.z1, R.drawable.z2);
+        mainIndicator.createDotPanel(5, R.drawable.indicator_non, R.drawable.indicator_select);
     }
-
-    public void initListener() {
-        drawerBtnCoupon.setOnClickListener(v ->
-        {
-            startActivity(new Intent(this, MyCouponListActivity.class));
-        });
-        drawerBtnPoint.setOnClickListener(v ->
-        {
-            startActivity(new Intent(this,PointListActivity.class));
-        });
-
-
-
-    }
-
 
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
 
@@ -210,13 +219,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.drawer_btn_coupon: {
+            case R.id.navi_coupon: {
                 startActivity(new Intent(this, MyCouponListActivity.class));
                 break;
             }
         }
         layoutMain.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void initListener() {
+        drawerBtnCoupon.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this, MyCouponListActivity.class));
+        });
+        drawerBtnPoint.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this,PointListActivity.class));
+        });
+
+
+    }
+
+    @OnClick(R.id.drawer_menu)
+    public void onViewClicked() {
+        layoutMain.openDrawer(GravityCompat.START);
     }
 
     class PlayingReceiver extends BroadcastReceiver {
@@ -229,6 +255,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             testTime.setText(serviceDataTime);
         }
     }
+
 
 
 }

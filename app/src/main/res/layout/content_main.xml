@@ -12,7 +12,7 @@
         android:gravity="bottom"
         sothree:umanoDragView="@+id/dragView"
         sothree:umanoOverlay="true"
-        sothree:umanoPanelHeight="40dp"
+        sothree:umanoPanelHeight="10dp"
         sothree:umanoShadowHeight="4dp">
 
         <RelativeLayout
@@ -23,80 +23,218 @@
             <FrameLayout
                 android:id="@+id/main_layout_circle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="270dp"
                 android:layout_marginTop="23dp"
                 android:layout_marginLeft="11.3dp"
                 android:layout_marginRight="11.3dp"
                 android:layout_marginBottom="7dp"
-                android:background="@drawable/rect_border">
+                android:background="@drawable/step_background">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5.7dp"
+                    android:id="@+id/drawer_menu"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/ic_menu_black_24dp"/>
+                    android:src="@drawable/menu"/>
+
+                <ImageView
+                    android:layout_gravity="right"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/nh_lifeship"/>
+
 
                 <FrameLayout
                     android:layout_width="530px"
-                    android:layout_height="531px"
-                    android:layout_marginTop="21.7dp"
+                    android:layout_height="535px"
+                    android:layout_marginTop="23dp"
                     android:layout_marginLeft="79.3dp"
                     android:layout_marginRight="79.3dp"
                     android:layout_gravity="center_horizontal|top"
                     >
+
                     <com.example.jinsu.nh_life.activity.CircleView
                         android:id="@+id/main_view_circle"
-                        android:layout_width="530px"
-                        android:layout_height="531px"
-                        />
-
-                    <TextView
-                        android:id="@+id/test_txt"
-                        android:layout_gravity="center"
-                        android:gravity="center"
+                        android:layout_width="262dp"
+                        android:layout_height="260dp" />
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hello World!"
-                        />
-                    <TextView
-                        android:id="@+id/test_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hello World!" />
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:id="@+id/test_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2056"
+                            android:fontFamily="@font/yoon340"
+                            android:textStyle="bold"
+                            android:textSize="46dp" />
+
+                        <TextView
+                            android:gravity="center_horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="STEPS"
+                            android:fontFamily="@font/yoon320"
+                            android:textSize="23dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <TextView
+                                android:gravity="center"
+                                android:id="@+id/text_point"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2000"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/yoon350" />
+
+                            <TextView
+                                android:gravity="center_horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="P"
+                                android:textStyle="bold"
+                                android:layout_marginLeft="1dp"
+                                android:textColor="@color/blue"
+                                android:fontFamily="@font/yoon320"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+
 
                 </FrameLayout>
 
-                <LinearLayout
+                <RelativeLayout
+                    android:id="@+id/layout_stepinfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginRight="28dp"
                     android:layout_marginLeft="28dp"
-                    android:layout_gravity="center_horizontal|bottom">
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="12dp">
+
                     <LinearLayout
+                        android:id="@+id/circle_stat1"
                         android:layout_width="51dp"
                         android:layout_height="51dp"
+                        android:layout_marginRight="27dp"
                         android:background="@drawable/round_border"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
 
                         <TextView
-                            android:layout_marginTop="7dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/yoon320"
+                            android:text="5.55"
+                            android:textColor="@color/blue"
                             android:textSize="19.5sp"
-                            android:text="5.55"/>
+                            android:textStyle="bold" />
+
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:text="km"
+                            android:fontFamily="@font/yoon320"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="4dp"
+                        android:background="@drawable/point3"
+                        android:layout_toRightOf="@+id/circle_stat1"
+                        android:layout_centerVertical="true"/>
+
+                    <LinearLayout
+                        android:id="@+id/circle_stat2"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+
+                        android:layout_marginRight="27dp"
+                        android:background="@drawable/round_border"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_centerInParent="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="19.5sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/yoon320"
+                            android:textColor="@color/blue"
+                            android:text="300"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="kcal"
+                            android:fontFamily="@font/yoon320"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="4dp"
+                        android:background="@drawable/point3"
+                        android:layout_toRightOf="@+id/circle_stat2"
+                        android:layout_centerVertical="true"/>
+
+                    <LinearLayout
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:background="@drawable/round_border"
+                        android:orientation="vertical"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/test_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="107"
+                            android:textSize="19.5sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue"
+                            android:fontFamily="@font/yoon320"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="분"
+
+                            android:fontFamily="@font/yoon320"
                             android:textSize="12sp"/>
 
 
                     </LinearLayout>
 
-                </LinearLayout>
+                </RelativeLayout>
+
+
 
             </FrameLayout>
 
@@ -104,12 +242,15 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                android:layout_marginLeft="11.3dp"
+                android:layout_marginRight="11.3dp"
                 android:layout_below="@id/main_layout_circle">
 
                 <android.support.v4.view.ViewPager
                     android:id="@+id/main_viewpager_coupon"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
+
                     >
                 </android.support.v4.view.ViewPager>
 
@@ -118,24 +259,93 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="60dp"
                     />
             </FrameLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="17dp"
+            android:gravity="center_horizontal">
+
+            <Button
+            android:id="@+id/send_point"
+            android:layout_width="162dp"
+            android:layout_height="52dp"
+            android:background="@drawable/send_button"
+                android:layout_marginRight="7dp"/>
+
+            <Button
+                android:id="@+id/shopping"
+                android:layout_width="162dp"
+                android:layout_height="52dp"
+                android:background="@drawable/shopping"/>
+
+        </LinearLayout>
         </RelativeLayout>
 
         <!-- barcode layout -->
         <LinearLayout
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="378dp"
             android:orientation="vertical"
-            android:background="#ff0000">
+            android:background="@android:color/transparent">
 
-            <ImageView
-                android:id="@+id/c"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/barcode"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="11.3dp"
+                android:layout_marginLeft="11.3dp"
+                android:background="@drawable/barcode_background">
+
+                <LinearLayout
+                    android:layout_marginTop="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="270.3dp"
+                    android:layout_height="172.7dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/nh_card">
+
+                    <TextView
+                        android:textColor="@color/white"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginLeft="43dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2000P"/>
+
+
+                    <ImageView
+                        android:id="@+id/c"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:src="@drawable/barcode"/>
+
+                </LinearLayout>
+
+                <!-- 쿠폰 -->
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager_my_coupon"
+                    android:layout_width="313.4dp"
+                    android:layout_height="125.3dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="11dp">
+
+                </android.support.v4.view.ViewPager>
+
+
+
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>

@@ -15,7 +15,6 @@ public class MainPageAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
                 return new CouponFragment();
-
     }
 
     @Override

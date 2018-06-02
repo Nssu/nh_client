@@ -34,7 +34,7 @@ public class StepCheckService extends Service implements SensorEventListener {
     private static long runningTime = 0;
 
     private float x, y, z;
-    private static final int SHAKE_THRESHOLD = 800;
+    private static final int SHAKE_THRESHOLD = 480;
 
     private SensorManager sensorManager;
     private Sensor accelerometerSensor;
@@ -118,7 +118,8 @@ public class StepCheckService extends Service implements SensorEventListener {
                     step = Constants.getInstance().getStep() / 2;
                     myFilteredResponse.putExtra("stepService", msg);
                     String msg2 = ""+(Constants.getInstance().getTime() / 1000);
-                    runningTime = Constants.getInstance().getTime();
+                    runningTime = Constants.getInstance().getTime() ;
+                    Log.e("test",""+msg2+"/"+runningTime);
                     myFilteredResponse.putExtra("timeService", msg2);
                     sendBroadcast(myFilteredResponse);
                 } // end of if

@@ -9,18 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jinsu.nh_life.R;
-import com.example.jinsu.nh_life.common.Constants;
-import com.example.jinsu.nh_life.model.Coupon;
-
-import java.util.ArrayList;
 
 public class MyCouponFragment extends Fragment {
 
 
-    private ArrayList<Coupon> list_coupons;
+
 
     public MyCouponFragment() {
-        this.list_coupons = Constants.getInstance().getList_coupons();
+
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

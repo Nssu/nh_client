@@ -2,8 +2,6 @@ package com.example.jinsu.nh_life.common;
 
 import com.example.jinsu.nh_life.model.Coupon;
 
-import java.util.ArrayList;
-
 public class Constants {
     private static Constants instance= null;
     private int Step = 0;
@@ -13,7 +11,7 @@ public class Constants {
 
     private String USER_KEY = "user_1";
 
-    private ArrayList<Coupon> list_coupons = new ArrayList<>();
+    private Coupon REC_COUPON;
     public String[] week = {"월요일","화요일","수요일","목요일","금요일","토요일","일요일"};
     private long Time = 0;
 
@@ -48,12 +46,12 @@ public class Constants {
         return USER_KEY;
     }
 
-    public ArrayList<Coupon> getList_coupons() {
-        return list_coupons;
+    public Coupon getREC_COUPON() {
+        return REC_COUPON;
     }
 
-    public void setList_coupons(ArrayList<Coupon> list_coupons) {
-        this.list_coupons = list_coupons;
+    public void setREC_COUPON(Coupon REC_COUPON) {
+        this.REC_COUPON = REC_COUPON;
     }
 
     public long getTime() {
@@ -71,4 +69,5 @@ public class Constants {
     public void setDELETE_STATUS(boolean DELETE_STATUS) {
         this.DELETE_STATUS = DELETE_STATUS;
     }
+
 }

@@ -44,6 +44,8 @@ public interface RetroService {
     Call<MyRank> getRank(@Query("user_key") String user_key);
 
 
+    @GET("/getRecommendCoupon")
+    Call<ArrayList<Coupon>> getRecCoupon(@Query("user_key") String user_key);
 
 
     @POST("/deleteMyCoupon")

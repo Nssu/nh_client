@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         CircleAnimation animation = new CircleAnimation(mainViewCircle, 260);
-        animation.setDuration(5000);
+        animation.setDuration(10000);
         mainViewCircle.startAnimation(animation);
         // nvAdmin.setNavigationItemSelectedListener(this);
 
@@ -240,11 +240,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             startActivity(new Intent(this, PointListActivity.class));
         });
-
+        shopping.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this,ShopActivity.class));
+        });
 
     }
 
-    @OnClick({R.id.drawer_menu, R.id.frame_step,R.id.send_point})
+    @OnClick({R.id.drawer_menu,R.id.frame_step,R.id.send_point})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.drawer_menu:
@@ -258,8 +261,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(getApplicationContext(),SendMoneyActivity.class));
                 break;
         }
-    }
 
+    }
 
     class PlayingReceiver extends BroadcastReceiver {
         @Override

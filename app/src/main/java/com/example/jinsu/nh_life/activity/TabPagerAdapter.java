@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jinsu.nh_life.R;
@@ -74,6 +75,16 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
         TextView textviewDay;
         @BindView(R.id.button_after)
         ImageButton buttonAfter;
+        @BindView(R.id.textview_step)
+        TextView textviewStep;
+        @BindView(R.id.textview_kcal)
+        TextView textviewKcal;
+        @BindView(R.id.textview_distance)
+        TextView textviewDistance;
+        @BindView(R.id.textview_time)
+        TextView textviewTime;
+        @BindView(R.id.layout_main)
+        LinearLayout layoutMain;
 
         private String[] current_day;
         private int mode; // 0 : 일별, 1: 주별, 2 : 월별
@@ -89,7 +100,7 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
             Date date = new Date(now);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             current_day = sdf.format(date).split("-");
-            textviewDay.setText(current_day[1]+"월 "+current_day[2]+"일");
+            textviewDay.setText(current_day[1] + "월 " + current_day[2] + "일");
 
             ArrayList<Entry> entries = new ArrayList<>();
             entries.add(new Entry(0, 0));
@@ -131,16 +142,16 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
         public void onViewClicked(View view) {
             switch (view.getId()) {
                 case R.id.button_previous:
-                    if(mode == 0) {
-                        int temp = Integer.parseInt(current_day[2])-1;
-                        textviewDay.setText(current_day[1]+"월 "+temp+"일");
+                    if (mode == 0) {
+                        int temp = Integer.parseInt(current_day[2]) - 1;
+                        textviewDay.setText(current_day[1] + "월 " + temp + "일");
                         current_day[2] = String.valueOf(temp);
                     }
                     break;
                 case R.id.button_after:
-                    if(mode == 0){
-                        int temp = Integer.parseInt(current_day[2])+1;
-                        textviewDay.setText(current_day[1]+"월 "+temp+"일");
+                    if (mode == 0) {
+                        int temp = Integer.parseInt(current_day[2]) + 1;
+                        textviewDay.setText(current_day[1] + "월 " + temp + "일");
                         current_day[2] = String.valueOf(temp);
                     }
                     break;

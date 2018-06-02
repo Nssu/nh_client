@@ -18,6 +18,7 @@ public class HealthActivity extends AppCompatActivity {
     @BindView(R.id.pager)
     ViewPager viewPager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

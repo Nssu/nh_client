@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initActivity();
-        //initService();
+        initService();
         initViewPager();
         initListener();
     }

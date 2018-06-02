@@ -8,4 +8,283 @@
     android:id="@+id/layout_main"
     android:orientation="vertical">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="318dp"
+        android:orientation="vertical"
+        android:background="@drawable/rank_background">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/drawer_im_user"
+                android:layout_width="166.7dp"
+                android:layout_height="166.3dp"
+                android:layout_marginLeft="61.3dp"
+                android:layout_marginRight="63.3dp"
+                android:layout_gravity="center"
+                android:src="@color/white"
+                app:riv_border_color="@color/white"
+                app:riv_border_width="1px"
+                app:riv_corner_radius="166dp" />
+
+            <ImageView
+                android:layout_width="142.7dp"
+                android:layout_height="52dp"
+                android:scaleType="fitXY"
+                android:layout_marginTop="124.3dp"
+                android:src="@drawable/profile_border"
+                android:layout_gravity="bottom|center_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:baselineAligned="true"
+                android:layout_marginBottom="17.7dp">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal">
+            
+            <TextView
+                android:id="@+id/text_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8989"
+                android:textSize="40sp"
+                android:fontFamily="@font/yoon350"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 걸음"
+                android:fontFamily="@font/yoon320"
+                android:textColor="@color/white"
+                android:layout_marginRight="80dp"/>
+
+            <TextView
+                android:id="@+id/text_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300"
+                android:textSize="40sp"
+                android:fontFamily="@font/yoon350"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 순위"
+                android:fontFamily="@font/yoon320"
+                android:textColor="@color/white"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/yoon350"
+                android:layout_weight="1"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:layout_gravity="center"
+                android:src="@color/white"
+                app:riv_border_color="@color/white"
+                app:riv_border_width="1px"
+                app:riv_corner_radius="166dp"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="여기는 이름"
+                android:textSize="14.3sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/yoon330"
+                android:gravity="center_vertical"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="10304"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:fontFamily="@font/yoon350"
+                android:layout_weight="2"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@drawable/first"/>
+
+       </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:background="@color/gray1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/yoon350"
+            android:layout_weight="1"/>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:layout_gravity="center"
+            android:src="@color/white"
+            app:riv_border_color="@color/black"
+            app:riv_border_width="1px"
+            app:riv_corner_radius="166dp"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="여기는 이름"
+            android:textSize="14.3sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/yoon330"
+            android:gravity="center_vertical"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="10304"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:fontFamily="@font/yoon350"
+            android:layout_weight="2"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/second"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:background="@color/gray1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/yoon350"
+            android:layout_weight="1"/>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:layout_gravity="center"
+            android:src="@color/white"
+            app:riv_border_color="@color/black"
+            app:riv_border_width="1px"
+            app:riv_corner_radius="166dp"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="여기는 이름"
+            android:textSize="14.3sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/yoon330"
+            android:gravity="center_vertical"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="10304"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:fontFamily="@font/yoon350"
+            android:layout_weight="2"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/third"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:background="@color/gray1"/>
+
+
+
+
+    </LinearLayout>

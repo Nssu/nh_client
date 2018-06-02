@@ -37,6 +37,9 @@
 
         <service android:name=".service.StepCheckService"
             android:exported="true"/>
+
+        <activity android:name=".activity.SendMoneyActivity"/>
+        <activity android:name=".activity.HealthActivity"/>
     </application>
 
 

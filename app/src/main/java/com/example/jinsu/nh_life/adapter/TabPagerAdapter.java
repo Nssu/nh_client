@@ -1,4 +1,4 @@
-package com.example.jinsu.nh_life.activity;
+package com.example.jinsu.nh_life.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

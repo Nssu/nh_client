@@ -7,10 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.jinsu.nh_life.R;
+import com.example.jinsu.nh_life.common.Constants;
 import com.example.jinsu.nh_life.service.StepCheckService;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -49,6 +52,14 @@ public class StatFragment extends Fragment {
     TextView textviewTime;
     @BindView(R.id.layout_main)
     LinearLayout layoutMain;
+    @BindView(R.id.stat_im_pizza)
+    ImageView statImPizza;
+    @BindView(R.id.stat_im_day)
+    ImageView statImDay;
+    @BindView(R.id.stat_im_week)
+    ImageView statImWeek;
+    @BindView(R.id.stat_im_month)
+    ImageView statImMonth;
 
     @BindView(R.id.textview_cal)
     TextView textkcal;
@@ -75,6 +86,13 @@ public class StatFragment extends Fragment {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         current_day = sdf.format(date).split("-");
         textviewDay.setText(current_day[1] + "월 " + current_day[2] + "일");
+        Glide.with(this).load(R.drawable.pizza).into(statImPizza);
+        Glide.with(this).load(R.drawable.daily).into(statImDay);
+        Glide.with(this).load(R.drawable.weekly).into(statImWeek);
+        Glide.with(this).load(R.drawable.monthly).into(statImMonth);
+        textviewStep.setText(String.valueOf(Constants.getInstance().getStep()));
+        textviewTime.setText( String.valueOf(Constants.getInstance().getTime()) );
+
 
         ArrayList<Entry> entries = new ArrayList<>();
         entries.add(new Entry(0, 0));
@@ -105,6 +123,12 @@ public class StatFragment extends Fragment {
 
         return view;
     }
+
+    private void setChart()
+    {
+
+    }
+
 
     @Override
     public void onDestroyView() {

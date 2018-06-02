@@ -29,17 +29,25 @@ import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.adapter.MainPageAdapter;
 import com.example.jinsu.nh_life.adapter.MyCouponAdapter;
 import com.example.jinsu.nh_life.common.Constants;
+
+import com.example.jinsu.nh_life.model.Coupon;
+import com.example.jinsu.nh_life.network.RetroClient;
+
 import com.example.jinsu.nh_life.service.StepCheckService;
 import com.example.jinsu.nh_life.util.CircleAnimation;
 import com.example.jinsu.nh_life.util.IndicatorAnimation;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -88,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String serviceData;
     private String serviceDataTime;
     private IndicatorAnimation circleAnimIndicator;
+    private ArrayList<Coupon> coupons_list;
 
     @BindView(R.id.test_txt)
     TextView testTxt;
@@ -125,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        coupons_list = new ArrayList<>();
+        getData();
         initActivity();
         initService();
         initViewPager();
@@ -180,7 +191,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         MyCouponAdapter myCouponAdapter = new MyCouponAdapter(getSupportFragmentManager());
         viewpagerMyCoupon.setAdapter(myCouponAdapter);
-        viewpagerMyCoupon.addOnPageChangeListener(mOnPageChangeListener);
+        viewpagerMyCoupon.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         //Indicator 초기화
         initIndicaotor();
@@ -192,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //원사이의 간격
         mainIndicator.setItemMargin(10);
         //애니메이션 속도
-        mainIndicator.setAnimDuration(200);
+        mainIndicator.setAnimDuration(400);
         //indecator 생성
         mainIndicator.createDotPanel(5, R.drawable.indicator_non, R.drawable.indicator_select);
     }
@@ -206,10 +232,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         public void onPageSelected(int position) {
             mainIndicator.selectDot(position);
+            Log.d("main_activity","selected position : " + position);
+            Constants.getInstance().setREC_COUPON(coupons_list.get(position));
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
+
         }
     };
 
@@ -288,6 +317,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+    private void getData()
+    {
+        coupons_list.clear();
+        Call<ArrayList<Coupon>> call = RetroClient.getInstance().getRetroService().getRecCoupon(Constants.getInstance().getUSER_KEY());
+        call.enqueue(new Callback<ArrayList<Coupon>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Coupon>> call, Response<ArrayList<Coupon>> response) {
+                Log.d("main_activity","연결성공 : " + response.body().get(0).getCoupon_brand());
+                coupons_list.addAll(response.body());
+                Constants.getInstance().setREC_COUPON(coupons_list.get(0));
+                initViewPager();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Coupon>> call, Throwable t) {
+                Log.d("main_activity","연결실패 : " + t.getMessage());
+            }
+        });
+    }
 
 
     class PlayingReceiver extends BroadcastReceiver {

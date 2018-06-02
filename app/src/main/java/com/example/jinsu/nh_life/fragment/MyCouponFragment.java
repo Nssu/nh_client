@@ -15,11 +15,13 @@ import android.widget.RelativeLayout;
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.activity.CustomDialogQRCode;
 
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 @SuppressLint("ValidFragment")
 public class MyCouponFragment extends Fragment {
+
 
 
 

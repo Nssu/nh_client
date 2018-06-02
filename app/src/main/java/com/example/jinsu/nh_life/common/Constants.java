@@ -7,11 +7,13 @@ import java.util.ArrayList;
 public class Constants {
     private static Constants instance= null;
     private int Step = 0;
+    public static int target = 10;
     public static double one_km = 0.0005;
     public static double one_kcal = 0.05;
     private String PREF_LOCAL_ID = "pref_id";
     private String PREF_USER_KEY = "user_key";
     private boolean DELETE_STATUS = true;
+    public static int point = 2000;
 
 
     private String USER_KEY = "user_1";

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.adapter.PointListAdapter;
@@ -25,6 +26,8 @@ public class PointListActivity extends AppCompatActivity {
 
     @BindView(R.id.point_list_recycle)
     RecyclerView pointListRecycle;
+    @BindView(R.id.point_list_txt_total_point)
+    TextView pointListTxtTotalPoint;
 
     private ArrayList<Point> point_list;
     private RecyclerView.Adapter mAdapter;
@@ -36,6 +39,7 @@ public class PointListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_point_list);
         ButterKnife.bind(this);
 
+        pointListTxtTotalPoint.setText(""+Constants.point+"P");
         initRecyclerview();
     }
 
@@ -49,22 +53,21 @@ public class PointListActivity extends AppCompatActivity {
         setList();
     }
 
-    private void setList()
-    {
+    private void setList() {
         point_list.clear();
-        Call<ArrayList<Point>> call =  RetroClient.getInstance().getRetroService().getPointList(Constants.getInstance().getUSER_KEY());
+        Call<ArrayList<Point>> call = RetroClient.getInstance().getRetroService().getPointList(Constants.getInstance().getUSER_KEY());
 
         call.enqueue(new Callback<ArrayList<Point>>() {
             @Override
             public void onResponse(Call<ArrayList<Point>> call, Response<ArrayList<Point>> response) {
-                Log.d("point_list","연결 성공" + response.body().get(0).getPoint_brand());
+                Log.d("point_list", "연결 성공" + response.body().get(0).getPoint_brand());
                 point_list.addAll(response.body());
                 mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<ArrayList<Point>> call, Throwable t) {
-                    Log.d("point_list","연결 실패 : "+ t.getMessage());
+                Log.d("point_list", "연결 실패 : " + t.getMessage());
             }
         });
 

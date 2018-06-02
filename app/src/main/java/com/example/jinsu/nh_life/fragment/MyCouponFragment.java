@@ -1,5 +1,6 @@
 package com.example.jinsu.nh_life.fragment;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.os.Build;
@@ -13,14 +14,11 @@ import android.widget.RelativeLayout;
 
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.activity.CustomDialogQRCode;
-import com.example.jinsu.nh_life.common.Constants;
-import com.example.jinsu.nh_life.model.Coupon;
-
-import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+@SuppressLint("ValidFragment")
 public class MyCouponFragment extends Fragment {
 
 
@@ -28,10 +26,8 @@ public class MyCouponFragment extends Fragment {
     RelativeLayout layoutCoupon;
     Unbinder unbinder;
     String coupon;
-    private ArrayList<Coupon> list_coupons;
 
     public MyCouponFragment(String coupon) {
-        this.list_coupons = Constants.getInstance().getList_coupons();
         this.coupon = coupon;
     }
 

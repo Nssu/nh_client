@@ -317,12 +317,13 @@
                     android:background="@drawable/nh_card">
 
                     <TextView
+                        android:id="@+id/card_point"
                         android:textColor="@color/white"
                         android:layout_marginTop="13dp"
                         android:layout_marginLeft="43dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2000P"/>
+                        android:text=" "/>
 
 
                     <ImageView

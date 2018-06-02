@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jinsu.nh_life.R;
+import com.example.jinsu.nh_life.service.StepCheckService;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -49,6 +50,11 @@ public class StatFragment extends Fragment {
     @BindView(R.id.layout_main)
     LinearLayout layoutMain;
 
+    @BindView(R.id.textview_cal)
+    TextView textkcal;
+
+
+
     private String[] current_day;
     private int mode; // 0 : 일별, 1: 주별, 2 : 월별
 
@@ -58,6 +64,11 @@ public class StatFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
 
         mode = 0;
+
+        textviewStep.setText(String.valueOf(StepCheckService.getStep()));
+        textkcal.setText(""+Math.round(StepCheckService.getStep() * 0.0005*100d)/100d+"kcal");
+        textviewTime.setText(""+String.valueOf(StepCheckService.getTime() / 60000)+"분");
+        textviewDistance.setText(""+Math.round(StepCheckService.getStep() * 0.05*100d)/100d+"km");
 
         long now = System.currentTimeMillis();
         Date date = new Date(now);

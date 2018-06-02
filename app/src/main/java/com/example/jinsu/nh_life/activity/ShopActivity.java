@@ -63,7 +63,25 @@ public class ShopActivity extends AppCompatActivity {
     private void setCoffe() {
         shop_list.clear();
         for(int i=0; i< 15; i++) {
-            shop_list.add(new Shop("http://cfile29.uf.tistory.com/image/165587494F72CE8826BCF5", "스타벅스", "초코송이", "3000p"));
+            shop_list.add(new Shop("http://cfile29.uf.tistory.com/image/165587494F72CE8826BCF5", "스타벅스", "아메리카노", "3000p"));
+        }
+        mAdapter.notifyDataSetChanged();
+
+    }
+
+    private void setBakery() {
+        shop_list.clear();
+        for(int i=0; i< 15; i++) {
+            shop_list.add(new Shop("https://www.paris.co.kr/data/product/aaa.JPG", "파리바게트", "고로케", "1500p"));
+        }
+        mAdapter.notifyDataSetChanged();
+
+    }
+
+    private void setDesert() {
+        shop_list.clear();
+        for(int i=0; i< 15; i++) {
+            shop_list.add(new Shop("http://www.twosome.co.kr//Twosome_file/PRODUCT/1419_big_img", "투썸플레이스", "레드벨벳 케이크", "7500p"));
         }
         mAdapter.notifyDataSetChanged();
 
@@ -82,12 +100,12 @@ public class ShopActivity extends AppCompatActivity {
         });
 
         shopLayoutBakery.setOnClickListener(v -> {
-
+                setBakery();
         });
 
         shopLayoutDesert.setOnClickListener(v ->
         {
-
+            setDesert();
         });
 
         shopLayoutMore.setOnClickListener(v ->

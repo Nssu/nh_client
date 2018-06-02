@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jinsu.nh_life.R;
+import com.example.jinsu.nh_life.adapter.TabPagerAdapter;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;

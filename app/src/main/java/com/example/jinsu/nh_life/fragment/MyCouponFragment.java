@@ -18,10 +18,12 @@ import com.example.jinsu.nh_life.model.Coupon;
 
 import java.util.ArrayList;
 
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class MyCouponFragment extends Fragment {
+
 
 
 

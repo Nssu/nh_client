@@ -33,7 +33,7 @@ public class CircleView extends View {
 
 
         //부채꼴
-        rf = new RectF(10, 10, 516, 516);
+        rf = new RectF(9, 15, 516, 516);
     }
 
     @Override

@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button drawerBtnLicense;
     @BindView(R.id.layout_drawer)
     LinearLayout layoutDrawer;
+    @BindView(R.id.frame_step)
+    FrameLayout frameStep;
     private Intent manboService;
 
     private BroadcastReceiver receiver;
@@ -133,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         CircleAnimation animation = new CircleAnimation(mainViewCircle, 260);
-        animation.setDuration(10000);
+        animation.setDuration(5000);
         mainViewCircle.startAnimation(animation);
         // nvAdmin.setNavigationItemSelectedListener(this);
 
@@ -227,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         layoutMain.closeDrawer(GravityCompat.START);
         return true;
     }
+
     public void initListener() {
         drawerBtnCoupon.setOnClickListener(v ->
         {
@@ -234,16 +238,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         drawerBtnPoint.setOnClickListener(v ->
         {
-            startActivity(new Intent(this,PointListActivity.class));
+            startActivity(new Intent(this, PointListActivity.class));
         });
 
 
     }
 
-    @OnClick(R.id.drawer_menu)
-    public void onViewClicked() {
-        layoutMain.openDrawer(GravityCompat.START);
+    @OnClick({R.id.drawer_menu, R.id.frame_step,R.id.send_point})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.drawer_menu:
+                layoutMain.openDrawer(GravityCompat.START);
+                break;
+            case R.id.frame_step:
+                startActivity(new Intent(getApplicationContext(),HealthActivity.class));
+                finish();
+                break;
+            case R.id.send_point:
+                startActivity(new Intent(getApplicationContext(),SendMoneyActivity.class));
+                break;
+        }
     }
+
 
     class PlayingReceiver extends BroadcastReceiver {
         @Override
@@ -255,7 +271,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             testTime.setText(serviceDataTime);
         }
     }
-
 
 
 }

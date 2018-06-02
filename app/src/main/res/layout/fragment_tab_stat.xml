@@ -6,30 +6,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layout_main"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_height="255dp"
+        android:orientation="vertical"
+        android:background="@drawable/stat_back">
 
-        <ImageButton
+    <LinearLayout
+        android:layout_marginTop="18dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="261dp"
+        android:layout_height="36.3dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/day_layout">
+
+        <Button
             android:id="@+id/button_previous"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:background="@drawable/before_icon"
+            android:layout_marginRight="15dp"/>
 
         <TextView
             android:id="@+id/textview_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:fontFamily="@font/yoon320"
+            android:textSize="14sp"
             android:font="@font/yoon310"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/button_after"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/after_icon"/>
 
 
     </LinearLayout>
@@ -37,45 +53,187 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="23.7dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/textview_step"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="걸음"
-            android:gravity="right"/>
+            android:text="8939"
+            android:textSize="52.7sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/yoon350"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 걸음"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:fontFamily="@font/yoon320"/>
+
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/textview_kcal"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="칼로리"/>
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/textview_distance"
+            <TextView
+                android:id="@+id/textview_kcal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14.3sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/yoon330"
+                android:text="칼로리"
+                android:layout_marginBottom="6dp"/>
+            
+            <ImageView
+                android:layout_width="46.3dp"
+                android:layout_height="4.3dp"
+                android:background="@drawable/underline"/>
+            
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="40.7dp"
+                android:layout_height="30dp"
+                android:background="@drawable/pizza"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300kcal"
+                android:textColor="@color/white"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/yoon320"/>
+            
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="km"/>
+            android:orientation="vertical"
+            android:layout_marginLeft="50dp"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/textview_time"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14.3sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/yoon330"
+                android:text="시  간"
+                android:layout_marginBottom="6dp"/>
+
+            <ImageView
+                android:layout_width="46.3dp"
+                android:layout_height="4.3dp"
+                android:background="@drawable/underline"
+                android:layout_marginBottom="7dp"/>
+
+
+            <TextView
+                android:id="@+id/textview_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="75분"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/yoon350"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="분"/>
+            android:orientation="vertical"
+            android:layout_marginLeft="50dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14.3sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/yoon330"
+                android:text="거  리"
+                android:layout_marginBottom="6dp"/>
+
+            <ImageView
+                android:layout_width="46.3dp"
+                android:layout_height="4.3dp"
+                android:background="@drawable/underline"
+                android:layout_marginBottom="7dp"/>
+
+
+            <TextView
+                android:id="@+id/textview_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2km"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/yoon350"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="200dp"
+        android:background="@color/white"
+        android:layout_marginTop="33dp"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/daily"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/weekly"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/monthly"/>
+
+        </LinearLayout>
+        
+    </RelativeLayout>
 
 </LinearLayout>

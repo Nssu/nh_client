@@ -16,8 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ import com.example.jinsu.nh_life.adapter.MainPageAdapter;
 import com.example.jinsu.nh_life.service.StepCheckService;
 import com.example.jinsu.nh_life.util.CircleAnimation;
 import com.example.jinsu.nh_life.util.IndicatorAnimation;
+import com.makeramen.roundedimageview.RoundedImageView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.List;
@@ -36,7 +39,22 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-
+    @BindView(R.id.drawer_im_user)
+    RoundedImageView drawerImUser;
+    @BindView(R.id.drawer_txt_point)
+    TextView drawerTxtPoint;
+    @BindView(R.id.drawer_btn_profile)
+    Button drawerBtnProfile;
+    @BindView(R.id.drawer_btn_coupon)
+    Button drawerBtnCoupon;
+    @BindView(R.id.drawer_btn_point)
+    Button drawerBtnPoint;
+    @BindView(R.id.drawer_btn_rating)
+    Button drawerBtnRating;
+    @BindView(R.id.drawer_btn_logout)
+    Button drawerBtnLogout;
+    @BindView(R.id.drawer_btn_license)
+    Button drawerBtnLicense;
     private Intent manboService;
 
     private BroadcastReceiver receiver;
@@ -54,8 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     @BindView(R.id.layout_main)
     DrawerLayout layoutMain;
-    @BindView(R.id.nv_admin)
-    NavigationView nvAdmin;
+
     @BindView(R.id.test_time)
     TextView testTime;
     @BindView(R.id.c)
@@ -70,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     IndicatorAnimation mainIndicator;
     @BindView(R.id.main_view_circle)
     CircleView mainViewCircle;
-
+    @BindView(R.id.layout_drawer)
+    LinearLayout layoutDrawer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initActivity();
         initService();
         initViewPager();
+        initListener();
     }
 
     public void initActivity() {
@@ -139,6 +158,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mainIndicator.createDotPanel(5, R.drawable.z1, R.drawable.z2);
     }
 
+    public void initListener() {
+        drawerBtnCoupon.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this, MyCouponListActivity.class));
+        });
+        drawerBtnPoint.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this,PointListActivity.class));
+        });
+
+
+
+    }
+
+
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
@@ -176,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.navi_coupon: {
+            case R.id.drawer_btn_coupon: {
                 startActivity(new Intent(this, MyCouponListActivity.class));
                 break;
             }

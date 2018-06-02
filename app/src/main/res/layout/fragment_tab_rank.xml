@@ -132,7 +132,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="여기는 이름"
+                android:text="박진수"
                 android:textSize="14.3sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/yoon330"
@@ -143,7 +143,7 @@
                 android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="10304"
+                android:text="9304"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:fontFamily="@font/yoon350"
@@ -152,7 +152,7 @@
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:background="@drawable/first"/>
 
        </LinearLayout>
@@ -195,7 +195,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="여기는 이름"
+            android:text="박윤성"
             android:textSize="14.3sp"
             android:textColor="@color/black"
             android:fontFamily="@font/yoon330"
@@ -206,7 +206,7 @@
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="10304"
+            android:text="8201"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:fontFamily="@font/yoon350"
@@ -215,7 +215,7 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:background="@drawable/second"/>
 
     </LinearLayout>
@@ -255,7 +255,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="여기는 이름"
+            android:text="김시온"
             android:textSize="14.3sp"
             android:textColor="@color/black"
             android:fontFamily="@font/yoon330"
@@ -266,7 +266,7 @@
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="10304"
+            android:text="7767"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:fontFamily="@font/yoon350"
@@ -275,7 +275,7 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:background="@drawable/third"/>
     </LinearLayout>
 

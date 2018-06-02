@@ -5,7 +5,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:gravity="center_horizontal"
 android:layout_width="313.4dp"
 android:layout_height="125.3dp"
-android:background="@drawable/coupon_background">
+android:background="@drawable/coupon_background"
+    android:id="@+id/layout_coupon">
 
 <ImageView
     android:id="@+id/main_im_coupon"

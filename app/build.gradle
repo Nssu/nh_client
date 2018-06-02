@@ -52,4 +52,7 @@ dependencies {
 
     //chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    //QR Code
+    implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
 }

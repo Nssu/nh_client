@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.adapter.MainPageAdapter;
 import com.example.jinsu.nh_life.adapter.MyCouponAdapter;
+import com.example.jinsu.nh_life.common.Constants;
 import com.example.jinsu.nh_life.service.StepCheckService;
 import com.example.jinsu.nh_life.util.CircleAnimation;
 import com.example.jinsu.nh_life.util.IndicatorAnimation;
@@ -110,6 +111,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     CircleView mainViewCircle;
     @BindView(R.id.viewpager_my_coupon)
     ViewPager viewpagerMyCoupon;
+    @BindView(R.id.text_km)
+    TextView textKm;
+    @BindView(R.id.text_kcal)
+    TextView textKcal;
+
+
 
 
     @Override
@@ -122,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initService();
         initViewPager();
         initListener();
+
     }
 
     public void initActivity() {
@@ -138,6 +146,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         CircleAnimation animation = new CircleAnimation(mainViewCircle, 260);
         animation.setDuration(10000);
         mainViewCircle.startAnimation(animation);
+
+
+
+
         // nvAdmin.setNavigationItemSelectedListener(this);
 
 
@@ -217,6 +229,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         testTxt.setText(String.valueOf(StepCheckService.getStep()));
         testTime.setText(String.valueOf(StepCheckService.getTime() / 1000));
+        textKm.setText(""+StepCheckService.getStep() * Constants.one_km);
+        textKcal.setText(""+StepCheckService.getStep() * Constants.one_kcal);
     }
 
     @Override
@@ -247,6 +261,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+
+
     @OnClick({R.id.drawer_menu,R.id.frame_step,R.id.send_point})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -264,6 +281,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+
+
     class PlayingReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -272,8 +291,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             testTxt.setText(serviceData);
             serviceDataTime = intent.getStringExtra("timeService");
             testTime.setText(serviceDataTime);
+            textKm.setText(""+Integer.parseInt(serviceData) * Constants.one_km);
+            textKcal.setText(""+Integer.parseInt(serviceData) * Constants.one_kcal);
         }
     }
+
+
 
 
 }

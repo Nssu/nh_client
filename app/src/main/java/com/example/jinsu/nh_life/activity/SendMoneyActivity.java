@@ -1,6 +1,8 @@
 package com.example.jinsu.nh_life.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
@@ -11,9 +13,7 @@ import android.widget.TextView;
 
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.common.Constants;
-
 import com.example.jinsu.nh_life.network.RetroClient;
-
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,6 +67,16 @@ public class SendMoneyActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
                     Log.d("send_","연결 성공");
+                    AlertDialog.Builder alert = new AlertDialog.Builder(SendMoneyActivity.this);
+                    alert.setMessage("송금되었습니다.")
+                            .setCancelable(false)
+                            .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Constants.point -= 1;
+                                    finish();
+                                }
+                            }).show();
                 }
 
                 @Override

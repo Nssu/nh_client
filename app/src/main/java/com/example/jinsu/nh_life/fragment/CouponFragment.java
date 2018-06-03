@@ -1,10 +1,12 @@
 package com.example.jinsu.nh_life.fragment;
 
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,9 @@ import com.example.jinsu.nh_life.network.RetroClient;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CouponFragment extends Fragment {
     @BindView(R.id.main_im_coupon)
@@ -59,10 +64,7 @@ public class CouponFragment extends Fragment {
         {
             startActivity(new Intent(getContext(), AllCouponListActivity.class));
         });
-        mainBtnReceiveCoupon.setOnClickListener(v ->
-        {
 
-        });
         return rootView;
     }
 
@@ -80,6 +82,59 @@ public class CouponFragment extends Fragment {
         coupon = Constants.getInstance().getREC_COUPON();
 
         if(coupon != null) {
+            mainBtnReceiveCoupon.setOnClickListener(v ->
+            {
+                Call<String> call = RetroClient.getInstance()
+                        .getRetroService().postCoupon(Constants.getInstance().getUSER_KEY(),coupon.getCoupon_key());
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        String res = response.body();
+                        if(res.equals("-1"))
+                        {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                            alert.setMessage("이미 쿠폰이 5개입니다.")
+                                    .setCancelable(false)
+                                    .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            return;
+                                        }
+                                    }).show();
+                        }
+                        else if(res.equals("-2"))
+                        {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                            alert.setMessage("이미 가지고 있습니다.")
+                                    .setCancelable(false)
+                                    .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            return;
+                                        }
+                                    }).show();
+                        }
+                        else
+                        {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
+                            alert.setMessage("쿠폰 받았습니다!!!")
+                                    .setCancelable(false)
+                                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            return;
+                                        }
+                                    }).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+
+                    }
+                });
+            });
+
             Glide.with(this).load(RetroClient.getInstance().getBASE_URL() + coupon.getCoupon_image()).into(mainImCoupon);
             mainTxtBrand.setText(coupon.getCoupon_brand());
             mainTxtContent.setText(coupon.getCoupon_content());

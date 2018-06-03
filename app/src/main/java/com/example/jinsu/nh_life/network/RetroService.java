@@ -51,7 +51,7 @@ public interface RetroService {
     @POST("/deleteMyCoupon")
     Call<String> deleteCoupon(@Query("user_key") String user_key, @Query("coupon_key") int coupon_key);
 
-    @GET
+    @GET("/Tram")
     Call<String> sendMoney(@Query("send_point") String send_point, @Query("user_key") String user_key);
 
 

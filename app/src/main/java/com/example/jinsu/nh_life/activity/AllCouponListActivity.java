@@ -46,7 +46,8 @@ public class AllCouponListActivity extends AppCompatActivity {
         mAdapter = new AllCouponListAdapter(this, coupon_list, new AllCouponListAdapter.onPostCouponCallback() {
             @Override
             public void onPost(int position) {
-                Call<String> call = RetroClient.getInstance().getRetroService().postCoupon(Constants.getInstance().getUSER_KEY(),coupon_list.get(position).getCoupon_key());
+                Call<String> call = RetroClient.getInstance()
+                        .getRetroService().postCoupon(Constants.getInstance().getUSER_KEY(),coupon_list.get(position).getCoupon_key());
                 Log.d("all_coupon",coupon_list.get(position).getCoupon_key() + " / " +position);
                 call.enqueue(new Callback<String>() {
                     @Override

@@ -38,7 +38,6 @@ public class PointListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_list);
         ButterKnife.bind(this);
-
         pointListTxtTotalPoint.setText(""+Constants.point+"P");
         initRecyclerview();
     }

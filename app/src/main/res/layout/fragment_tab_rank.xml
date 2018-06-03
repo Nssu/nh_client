@@ -27,10 +27,11 @@
                 android:layout_marginLeft="61.3dp"
                 android:layout_marginRight="63.3dp"
                 android:layout_gravity="center"
-                android:src="@color/white"
+
                 app:riv_border_color="@color/white"
                 app:riv_border_width="1px"
-                app:riv_corner_radius="166dp" />
+                app:riv_corner_radius="166dp"
+                />
 
             <ImageView
                 android:layout_width="142.7dp"
@@ -71,7 +72,7 @@
                 android:id="@+id/text_step"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8989"
+                android:text="5605"
                 android:textSize="40sp"
                 android:fontFamily="@font/yoon350"
                 android:textColor="@color/white"/>
@@ -120,6 +121,7 @@
                 android:layout_weight="1"/>
 
             <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/im_min"
                 android:layout_width="49dp"
                 android:layout_height="49dp"
                 android:layout_gravity="center"
@@ -132,7 +134,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="박진수"
+                android:text="김민정"
                 android:textSize="14.3sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/yoon330"
@@ -183,6 +185,7 @@
             android:layout_weight="1"/>
 
         <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/im_yoon"
             android:layout_width="49dp"
             android:layout_height="49dp"
             android:layout_gravity="center"
@@ -243,6 +246,7 @@
             android:layout_weight="1"/>
 
         <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/im_sion"
             android:layout_width="49dp"
             android:layout_height="49dp"
             android:layout_gravity="center"

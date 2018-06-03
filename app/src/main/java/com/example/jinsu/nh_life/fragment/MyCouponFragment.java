@@ -58,14 +58,7 @@ public class MyCouponFragment extends Fragment {
         unbinder = ButterKnife.bind(this, rootView);
         if(hint) {
             setVIew();
-            layoutCoupon.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    Log.d("CLICK", "OnLongClickListener");
-                    someCallMethod(coupon);
-                    return true; // 다음 이벤트 계속 진행 false, 이벤트 완료 true
-                }
-            });
+
         }
         return rootView;
     }
@@ -100,6 +93,14 @@ public class MyCouponFragment extends Fragment {
             start_date = start_date.replaceAll("-", ".");
             expired_date = expired_date.replaceAll("-", ".");
             barTxtDate.setText(start_date + " ~ " + expired_date);
+            layoutCoupon.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    Log.d("CLICK", "OnLongClickListener");
+                    someCallMethod(coupon);
+                    return true; // 다음 이벤트 계속 진행 false, 이벤트 완료 true
+                }
+            });
         }
     }
 

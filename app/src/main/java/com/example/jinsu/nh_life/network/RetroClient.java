@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetroClient {
     private RetroService retroService;
     private static RetroClient instance = null;
-    private final String BASE_URL = "http://192.168.70.128:3000/";
+    private final String BASE_URL = "http://192.168.80.19:3000/";
 
     private RetroClient()
     {

@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getData();
         initActivity();
         initService();
-        initViewPager();
+        //initViewPager();
         initListener();
 
     }
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         Glide.with(this).load(R.drawable.my).into(drawerImUser);
         CircleAnimation animation = new CircleAnimation(mainViewCircle, 260);
-        animation.setDuration(10000);
+        animation.setDuration(3000);
         mainViewCircle.startAnimation(animation);
 
 
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onPageSelected(int position) {
-                Constants.getInstance().setMY_COUPON(my_coupons_list.get(position));
+               Constants.getInstance().setMY_COUPON(my_coupons_list.get(position));
             }
 
             @Override
@@ -215,11 +215,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initIndicaotor() {
-
+        Log.d("indicator","initindicator()");
         //원사이의 간격
         mainIndicator.setItemMargin(10);
         //애니메이션 속도
-        mainIndicator.setAnimDuration(600);
+        mainIndicator.setAnimDuration(1000);
         //indecator 생성
         mainIndicator.createDotPanel(5, R.drawable.indicator_non, R.drawable.indicator_select);
     }
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public void onPageSelected(int position) {
-            mainIndicator.selectDot(position);
+            //mainIndicator.selectDot(position);
             Log.d("main_activity","selected position : " + position);
             Constants.getInstance().setREC_COUPON(coupons_list.get(position));
         }
@@ -263,11 +263,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         testTime.setText(String.valueOf(StepCheckService.getTime() / 60000));
         textKm.setText(""+Math.round(StepCheckService.getStep() * Constants.one_km*100d)/100d);
         textKcal.setText(""+Math.round(StepCheckService.getStep() * Constants.one_kcal*100d)/100d);
+        textPoint.setText(""+Constants.point);
         if(Constants.target < StepCheckService.getStep()){
             Constants.point += 1;
             Constants.target  += 10;
         }
-        drawerTxtPoint.setText(""+Constants.point+"P");
+        drawerTxtPoint.setText(""+Constants.point);
     }
 
     @Override
@@ -362,6 +363,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Log.i("PlayignReceiver", "IN");
             serviceData = intent.getStringExtra("stepService");
             testTxt.setText(serviceData);
+
             serviceDataTime = intent.getStringExtra("timeService");
             testTime.setText(""+Integer.parseInt(serviceDataTime)/60);
             textKm.setText(""+Math.round(Integer.parseInt(serviceData) * Constants.one_km*100d)/100d);
@@ -370,6 +372,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Constants.point += 1;
                 Constants.target  += 10;
             }
+            textPoint.setText(""+Constants.point);
             drawerTxtPoint.setText(""+Constants.point+"P");
         }
     }

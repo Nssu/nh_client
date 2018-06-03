@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.jinsu.nh_life.R;
 import com.example.jinsu.nh_life.adapter.TabPagerAdapter;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -115,7 +116,7 @@ public class HealthActivity extends AppCompatActivity {
 
             }
         });
-
+        Glide.with(this).load(R.drawable.my).into(drawerImUser);
 
     }
 

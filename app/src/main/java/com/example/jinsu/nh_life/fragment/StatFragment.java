@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -48,10 +47,11 @@ public class StatFragment extends Fragment {
     TextView textviewKcal;
     @BindView(R.id.textview_distance)
     TextView textviewDistance;
+
     @BindView(R.id.textview_time)
     TextView textviewTime;
-    @BindView(R.id.layout_main)
-    LinearLayout layoutMain;
+    /*@BindView(R.id.layout_main)
+    LinearLayout layoutMain;*/
     @BindView(R.id.stat_im_day)
     ImageView statImDay;
     @BindView(R.id.stat_im_week)
@@ -76,7 +76,7 @@ public class StatFragment extends Fragment {
         mode = 0;
 
         textviewStep.setText(String.valueOf(StepCheckService.getStep()));
-        textkcal.setText("" + Math.round(StepCheckService.getStep() * 0.0005 * 100d) / 100d + "kcal");
+
         textviewTime.setText("" + String.valueOf(StepCheckService.getTime() / 60000) + "분");
         textviewDistance.setText("" + Math.round(StepCheckService.getStep() * 0.05 * 100d) / 100d + "km");
 
@@ -89,8 +89,9 @@ public class StatFragment extends Fragment {
         Glide.with(this).load(R.drawable.daily).into(statImDay);
         Glide.with(this).load(R.drawable.weekly).into(statImWeek);
         Glide.with(this).load(R.drawable.monthly).into(statImMonth);
-        textviewStep.setText(String.valueOf(Constants.getInstance().getStep()));
-        textviewTime.setText(String.valueOf(Constants.getInstance().getTime()));
+        textviewStep.setText(String.valueOf(Constants.getInstance().getStep()/2));
+        textviewTime.setText(String.valueOf(Constants.getInstance().getTime()/60000));
+        textkcal.setText("" + Math.round(StepCheckService.getStep() * 0.0005 * 100d) / 100d + "kcal");
 
 
         ArrayList<Entry> entries = new ArrayList<>();

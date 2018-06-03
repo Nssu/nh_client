@@ -62,27 +62,131 @@ public class ShopActivity extends AppCompatActivity {
 
     private void setCoffe() {
         shop_list.clear();
-        for(int i=0; i< 15; i++) {
-            shop_list.add(new Shop("http://cfile29.uf.tistory.com/image/165587494F72CE8826BCF5", "스타벅스", "아메리카노", "3000p"));
-        }
+
+            shop_list.add(new Shop("http://cfile29.uf.tistory.com/image/165587494F72CE8826BCF5",
+                    "스타벅스", "아메리카노", "3000p"));
+            shop_list.add(new Shop("http://fimg2.pann.com/new/download.jsp?FileID=26583713",
+                    "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://cfile6.uf.tistory.com/image/2774BE41543B4018101886",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://img.newspim.com/news/2017/07/11/1707110912451040.jpg",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://archivenew.vop.co.kr/images/ebcb408fc84e59269558238d19ab771b/2017-03/22040252_79c728765.jpg",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://cfile229.uf.daum.net/image/255C3D3B5277386E0C276E",
+                "스타벅스", "아메리카노", "3000p"));shop_list.add(new Shop("http://fimg2.pann.com/new/download.jsp?FileID=26583713",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://img.newspim.com/news/2017/07/11/1707110912451040.jpg",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://cfile28.uf.tistory.com/image/26280E44533A474A0623C2",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYeYvuWlYDJvSQvgxwwCD6OUGItO7QqFVlPTpAIBx_-_yoc-46",
+                "스타벅스", "아메리카노", "3000p"));
+
+        shop_list.add(new Shop("http://fimg2.pann.com/new/download.jsp?FileID=26583713",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://fimg2.pann.com/new/download.jsp?FileID=26583713",
+                "스타벅스", "아메리카노", "3000p"));
+        shop_list.add(new Shop("http://fimg2.pann.com/new/download.jsp?FileID=26583713",
+                "스타벅스", "아메리카노", "3000p"));
+
+
+
         mAdapter.notifyDataSetChanged();
 
     }
 
     private void setBakery() {
         shop_list.clear();
-        for(int i=0; i< 15; i++) {
-            shop_list.add(new Shop("https://www.paris.co.kr/data/product/aaa.JPG", "파리바게트", "고로케", "1500p"));
-        }
+
+            shop_list.add
+                    (new Shop("https://www.paris.co.kr/data/product/aaa.JPG",
+                    "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/441.png",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/Mocha.JPG",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/mi.PNG",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/gansic_044.jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/1(53).jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/[1]eum38663@550.jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/bagguette.jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/eum26774.jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/[1]%ED%86%A1%ED%86%A1%EC%94%B9%ED%9E%88%EB%8A%94%EC%BD%98%EB%B8%8C%EB%A0%88%EB%93%9C.jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/01(6).jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/[2]b.jpg",
+                        "파리바게트", "고로케", "1500p"));
+        shop_list.add
+                (new Shop("https://www.paris.co.kr/data/product/aaa.JPG",
+                        "파리바게트", "고로케", "1500p"));
+
+
         mAdapter.notifyDataSetChanged();
 
     }
 
     private void setDesert() {
         shop_list.clear();
-        for(int i=0; i< 15; i++) {
-            shop_list.add(new Shop("http://www.twosome.co.kr//Twosome_file/PRODUCT/1419_big_img", "투썸플레이스", "레드벨벳 케이크", "7500p"));
-        }
+
+            shop_list.add
+                    (new Shop("http://www.twosome.co.kr//Twosome_file/PRODUCT/1419_big_img",
+                            "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://gdimg.gmarket.co.kr/1296869304/still/600?ver=1522654185",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://www.twosome.co.kr/Twosome_file/PRODUCT/781_big_img",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://www.twosome.co.kr//Twosome_file/PRODUCT/1505_big_img",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://cakeloveyou.com/web/product/medium/201803/274_shop1_162534.jpg",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("https://www.twosome.co.kr:7009/Twosome_file/PRODUCT/2083_small_img",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("https://www.twosome.co.kr:7009/Twosome_file/PRODUCT/2082_small_img",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://image.auction.co.kr/itemimage/11/55/e5/1155e5b2e1.jpg",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://image.auction.co.kr/itemimage/11/55/e4/1155e4de71.jpg",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://www.knnews.co.kr/edb/nimages/2014/06/20140627.01010112000002.03L.jpg",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("http://www.twosome.co.kr//Twosome_file/PRODUCT/1885_big_img",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("https://img.siksinhot.com/place/1426011161342460.jpg?w=307&h=300&c=Y",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+        shop_list.add
+                (new Shop("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU66MsPzuVKhwcCQlhEHC5KjEQliToNag78csYb895Uc6oiTRTfQ",
+                        "투썸플레이스", "레드벨벳 케이크", "7500p"));
+
         mAdapter.notifyDataSetChanged();
 
     }

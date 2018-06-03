@@ -22,19 +22,20 @@ import com.example.jinsu.nh_life.common.Constants;
 public class StepCheckService extends Service implements SensorEventListener {
     public static int step = 0;
     int count = Constants.getInstance().getStep();
+
     private long lastTime;
     private float speed;
     private float lastX;
     private float lastY;
     private float lastZ;
     private NotificationManager Notifi_M;
-   // private ServiceThread thread;
-    private Notification Notifi ;
+    // private ServiceThread thread;
+    private Notification Notifi;
     private RemoteViews remoteViews;
     private static long runningTime = 0;
 
     private float x, y, z;
-    private static final int SHAKE_THRESHOLD = 480;
+    private static final int SHAKE_THRESHOLD = 450;
 
     private SensorManager sensorManager;
     private Sensor accelerometerSensor;
@@ -42,7 +43,6 @@ public class StepCheckService extends Service implements SensorEventListener {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i("onCreate", "IN");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     } // end of onCreate
@@ -51,16 +51,16 @@ public class StepCheckService extends Service implements SensorEventListener {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         super.onStartCommand(intent, flags, startId);
-        Log.i("onStartCommand", "IN");
+
         if (accelerometerSensor != null) {
             sensorManager.registerListener(this, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME);
         } // end of if
 
         Intent intent2 = new Intent(StepCheckService.this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(StepCheckService.this, 0, intent2,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(StepCheckService.this, 0, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
 
         remoteViews = new RemoteViews(getPackageName(), R.layout.remote_barcode);
-        remoteViews.setOnClickPendingIntent(R.id.layout_remote,pendingIntent);
+        remoteViews.setOnClickPendingIntent(R.id.layout_remote, pendingIntent);
 
         Notifi_M = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Notifi = new Notification.Builder(StepCheckService.this)
@@ -74,7 +74,7 @@ public class StepCheckService extends Service implements SensorEventListener {
                 .build();
 
         //Notifi_M.notify( 777 , Notifi);
-        startForeground(1,Notifi);
+        startForeground(1, Notifi);
 
         return START_NOT_STICKY;
     } // end of onStartCommand
@@ -91,14 +91,14 @@ public class StepCheckService extends Service implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        Log.i("onSensorChanged", "IN");
+
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             long currentTime = System.currentTimeMillis();
             long gabOfTime = (currentTime - lastTime);
 
 
             if (gabOfTime > 100) { //  gap of time of step count
-                Log.i("onSensorChanged_IF", "FIRST_IF_IN");
+
                 lastTime = currentTime;
 
                 x = event.values[0];
@@ -108,7 +108,6 @@ public class StepCheckService extends Service implements SensorEventListener {
                 speed = Math.abs(x + y + z - lastX - lastY - lastZ) / gabOfTime * 10000;
 
                 if (speed > SHAKE_THRESHOLD) {
-                    Log.i("onSensorChanged_IF", "SECOND_IF_IN");
                     Intent myFilteredResponse = new Intent("make.a.yong.manbo");
 
                     Constants.getInstance().setStep(count++);
@@ -117,9 +116,8 @@ public class StepCheckService extends Service implements SensorEventListener {
                     String msg = Constants.getInstance().getStep() / 2 + "";
                     step = Constants.getInstance().getStep() / 2;
                     myFilteredResponse.putExtra("stepService", msg);
-                    String msg2 = ""+(Constants.getInstance().getTime() / 1000);
-                    runningTime = Constants.getInstance().getTime() ;
-                    Log.e("test",""+msg2+"/"+runningTime);
+                    String msg2 = "" + (Constants.getInstance().getTime() / 1000);
+                    runningTime = Constants.getInstance().getTime();
                     myFilteredResponse.putExtra("timeService", msg2);
                     sendBroadcast(myFilteredResponse);
                 } // end of if
@@ -137,15 +135,14 @@ public class StepCheckService extends Service implements SensorEventListener {
 
     }
 
-    public static int getStep()
-    {
+    public static int getStep() {
         return step;
     }
 
-    public static long getTime()
-    {
+    public static long getTime() {
         return runningTime;
     }
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
